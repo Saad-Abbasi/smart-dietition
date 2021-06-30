@@ -1,10 +1,10 @@
 {
   "name": "Smart Dietition",
-  "short_name": "smart Dietition",
+  "short_name": "Smart Dietition",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
-  "scope": ".",
+  "scope": "./",
   "start_url": "./",
   "icons": [
     {

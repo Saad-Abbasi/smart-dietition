@@ -25,7 +25,8 @@ import { SignupComponent } from './pages/signup/signup.component'
     AppRoutingModule,
     MaterialModule,
     FlexModule ,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production , registrationStrategy: "registerImmediately"}),
+
     BrowserAnimationsModule
   ],
   providers: [],
