@@ -1,0 +1,36 @@
+<div class="contatiner">
+    <mat-card class="menu-card">
+        <mat-card-header>
+            <div mat-card-avatar class="logo"></div>
+            <mat-card-title>Smart Dietation</mat-card-title>
+            <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+            <div class="menu-button">
+                <button type="button" mat-mini-fab color="primary"  (click)="drawer.toggle()">
+                    <mat-icon>menu</mat-icon>
+                  </button>
+              </div>
+          </mat-card-header>  
+    </mat-card>
+</div>
+
+
+
+  
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+    
+    
+    <ul>
+        <li>
+            <a href="http://">Portion</a>
+        </li>
+        <li>
+            <a href="http://">Portion</a>
+        </li>
+        <li>
+            <a href="http://">Portion</a>
+        </li>
+    </ul>
+    </mat-drawer>
+  
+  </mat-drawer-container>
