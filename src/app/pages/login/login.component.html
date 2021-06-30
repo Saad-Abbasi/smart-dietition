@@ -19,13 +19,11 @@
               <mat-icon>vpn_key</mat-icon>
             </button>
           </mat-form-field>
-        
-          
           <div class="register">
-            <button mat-raised-button>
+            <button mat-raised-button (click)="login()">
                 Login
             </button>
-            <span> Not registerd? <a href="#" >Click to register</a></span>
+            <span> Not registerd? <a  routerLink="/register" >Click to register</a></span>
                 
           </div>
     </mat-card>

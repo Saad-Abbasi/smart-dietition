@@ -1,0 +1,22 @@
+.container-fluid{
+        height:100%;
+        width: 100%;
+        background-size: cover;
+        background-image: url('../../../assets/banners/home-banner.gif');
+    .container{
+        margin-left: 15px;
+        margin-right: 15px;
+        padding-top: 50px;
+        .content-card{
+            background-color:transparent;
+            box-shadow: none !important;
+          button{
+            font-size: 250%;
+            padding: 4%;
+            width: 300px;
+            margin: 10% 0%;
+          }
+        }
+    }
+    
+}

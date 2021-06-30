@@ -1,17 +1,11 @@
-<div class="contatiner">
+<div class="container-fluid">
+    <div class="container">
+    <mat-card  color="accent" class="content-card card-1" >
+		<button mat-raised-button color="accent">BMI Calculator </button>
+		<button mat-raised-button color="accent">Portion Control </button>
+		<button mat-raised-button color="accent">Show Guidlines </button>
+		<button mat-raised-button color="accent" (click)="logout()">Logout </button>
 
-	<div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
-
-		<div fxFlex="15" class="sec1" fxFlex.xs="55">
-			first-section
-		</div>
-		<div fxFlex="30" class="sec2">
-			second-section
-		</div>
-		<div fxFlex="55" class="sec3" fxFlex.xs="15">
-			third-section
-		</div>
-
-	</div>
-
+    </mat-card>
 </div>
+
