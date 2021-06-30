@@ -4,8 +4,8 @@
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
-  "scope": "https://smart-dietition.vercel.app/",
-  "start_url": "https://smart-dietition.vercel.app/",
+  "scope": "/",
+  "start_url": "/",
   "icons": [
     {
       "src": "assets/icons/SD.png",
