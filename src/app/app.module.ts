@@ -12,7 +12,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
-import { BMIComponent } from './pages/bmi/bmi.component'
+import { BMIComponent } from './pages/bmi/bmi.component';
+import { GuidlinesComponent } from './pages/guidlines/guidlines.component';
+import { PortionControllComponent } from './pages/portion-controll/portion-controll.component';
+import { BreakfastComponent } from './pages/breakfast/breakfast.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { BMIComponent } from './pages/bmi/bmi.component'
     LoginComponent,
     HeaderComponent,
     SignupComponent,
-    BMIComponent
+    BMIComponent,
+    GuidlinesComponent,
+    PortionControllComponent,
+    BreakfastComponent
   ],
   imports: [
     BrowserModule,
