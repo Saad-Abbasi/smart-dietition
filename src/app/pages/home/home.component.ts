@@ -15,4 +15,14 @@ export class HomeComponent implements OnInit {
   logout(){
      this.router.navigate(['login'])
   }
+  BMI(){
+    this.router.navigate(['bmi'])
+  }
+  showGuidlines(){
+    this.router.navigate(['guide'])
+  }
+  portionControll(){
+    this.router.navigate(['portion']);
+  }
+  
 }

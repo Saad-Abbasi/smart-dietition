@@ -6,6 +6,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const materialComponents = [
   MatButtonModule,
@@ -14,7 +15,8 @@ const materialComponents = [
   MatSidenavModule,
   MatCardModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatSnackBarModule
 ]
 
 

@@ -1,9 +1,9 @@
 <div class="container-fluid">
     <div class="container">
     <mat-card  color="accent" class="content-card card-1" >
-		<button mat-raised-button color="accent">BMI Calculator </button>
-		<button mat-raised-button color="accent">Portion Control </button>
-		<button mat-raised-button color="accent">Show Guidlines </button>
+		<button mat-raised-button color="accent" (click)="BMI()">BMI Calculator </button>
+		<button mat-raised-button color="accent" (click)="portionControll()">Portion Control </button>
+		<button mat-raised-button color="accent"(click)="showGuidlines()">Show Guidlines </button>
 		<button mat-raised-button color="accent" (click)="logout()">Logout </button>
 
     </mat-card>

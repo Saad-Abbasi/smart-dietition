@@ -1,0 +1,56 @@
+$accent_color:#ff4081;
+.container-card{
+  padding-top: 42px;
+  box-shadow: none;
+  table {
+    width: 100%;
+  }
+  
+    .menu-card{
+       margin-bottom: 20px ;
+       a{
+        text-decoration: none;
+        color: $accent_color;
+       }
+    }
+    .diet-title{
+      margin-top: 10px;
+
+    }
+    .breakfast{
+      background-image: url('../../../assets/banners/breakfast.jpg');
+      background-size: cover;
+      position: absolute;
+      right: 0;
+       margin-right: 20px;
+    }
+    .lunch{
+      background-image: url('../../../assets/banners/lunch.jpg');
+      background-size: cover;
+      position: absolute;
+      right: 0;
+      margin-right: 20px;
+    }
+    .snacks{
+      background-image: url('../../../assets/banners/snacks.jpg');
+      background-size: cover;
+      position: absolute;
+      right: 0;
+      margin-right: 20px;
+    }
+    .dinner{
+      background-image: url('../../../assets/banners/dinner.jpg');
+      background-size: cover;
+      position: absolute;
+      right: 0;
+      margin-right: 20px;
+    }
+.panel-title{
+  cursor: pointer;
+  margin: 0px 10px 0px 10px;
+  padding: 0px 20px;
+  font-size: large;
+  font-weight: bold;
+  color: $accent_color;
+}
+}

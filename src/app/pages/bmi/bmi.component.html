@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="container">
+    <div class="banner"> 
+        <img src="../../../assets/banners/bmi_banner.jpg" alt="">
+    </div>
+    <mat-card  class="login-card" >
+        
+        <h1>BMI Calculator</h1>
+        <form [formGroup]="bmiForm" (submit)="calculate()">
+            <mat-form-field  appearance="fill">
+                <mat-label>Your Height (in)</mat-label>
+                <input matInput type="text" formControlName="height" autocomplete="off">
+                <button  matSuffix mat-icon-button aria-label="Clear" >
+                  <mat-icon>height</mat-icon>
+                </button>
+                <mat-error *ngIf="(bmiForm.get('height').touched 
+                || bmiForm.get('height').dirty) && 
+                bmiForm.get('height').errors">
+    Please enter height</mat-error>
+              </mat-form-field>
+              <mat-form-field class="example-form-field" appearance="fill">
+                <mat-label>Weight (kg)</mat-label>
+                <input matInput type="text"  formControlName="weight" autocomplete="off">
+                <button  matSuffix mat-icon-button aria-label="Clear" >
+                  <mat-icon>monitor_weight</mat-icon>
+                </button>
+                <mat-error *ngIf="(bmiForm.get('weight').touched 
+                || bmiForm.get('weight').dirty) && 
+                bmiForm.get('weight').errors">
+    Please enter weight</mat-error>
+              </mat-form-field>
+              <div class="register">
+                <mat-card class="bmi_card" *ngIf="BMI">
+                  BMi is {{BMI}} and you are  {{this.weightReport}}
+                </mat-card>
+                <button mat-raised-button color="accent" type="submit">
+                    Calculate
+                </button> 
+                
+              </div>
+        </form>
+       
+    </mat-card>
+</div>
+
+</div>

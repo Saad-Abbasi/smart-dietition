@@ -1,0 +1,249 @@
+<mat-card class="card-carbs">
+    <table mat-table [dataSource]="dataSourceCarbs" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="carbs">
+          <th mat-header-cell *matHeaderCellDef> Carbs </th>
+          <td mat-cell *matCellDef="let element"> {{element.carbs}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="ratio">
+          <th mat-header-cell *matHeaderCellDef> Ratio </th>
+          <td mat-cell *matCellDef="let element"> {{element.ratio}} </td>
+        </ng-container>
+       <!-- Checkbox Column -->
+       <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selectionCarbs.hasValue() && isAllSelectedCarbs()"
+                        [indeterminate]="selectionCarbs.hasValue() && !isAllSelectedCarbs()"
+                        [aria-label]="checkboxLabel()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selectionCarbs.toggle(row) : null"
+                        [checked]="selectionCarbs.isSelected(row)"
+                        [aria-label]="checkboxLabel(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsCarbs"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsCarbs;"
+            (click)="selectionCarbs.toggle(row)">
+        </tr>
+      </table>
+</mat-card>
+
+<!-- Proteins -->
+
+
+<mat-card class="card-protein">
+    <table mat-table [dataSource]="dataSourceProtein" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="protein">
+          <th mat-header-cell *matHeaderCellDef> Proteins </th>
+          <td mat-cell *matCellDef="let element"> {{element.protein}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="ratio">
+          <th mat-header-cell *matHeaderCellDef> Ratio </th>
+          <td mat-cell *matCellDef="let element"> {{element.ratio}} </td>
+        </ng-container>
+       <!-- Checkbox Column -->
+       <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggleProtein() : null"
+                        [checked]="selectionProtein.hasValue() && isAllSelectedProtein()"
+                        [indeterminate]="selectionProtein.hasValue() && !isAllSelectedProtein()"
+                        [aria-label]="checkboxLabelProtein()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selectionProtein.toggle(row) : null"
+                        [checked]="selectionProtein.isSelected(row)"
+                        [aria-label]="checkboxLabelProtein(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsProtein"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsProtein;"
+            (click)="selectionProtein.toggle(row)">
+        </tr>
+      </table>
+</mat-card>
+
+
+<!-- Fats -->
+
+<mat-card class="card-fats">
+    <table mat-table [dataSource]="dataSourceFat" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="fat">
+          <th mat-header-cell *matHeaderCellDef> Fat </th>
+          <td mat-cell *matCellDef="let element"> {{element.fat}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="ratio">
+          <th mat-header-cell *matHeaderCellDef> Ratio </th>
+          <td mat-cell *matCellDef="let element"> {{element.ratio}} </td>
+        </ng-container>
+       <!-- Checkbox Column -->
+       <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggleFat() : null"
+                        [checked]="selectionFat.hasValue() && isAllSelectedFat()"
+                        [indeterminate]="selectionFat.hasValue() && !isAllSelectedFat()"
+                        [aria-label]="checkboxLabelFat()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selectionFat.toggle(row) : null"
+                        [checked]="selectionFat.isSelected(row)"
+                        [aria-label]="checkboxLabelFat(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsFat"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsFat;"
+            (click)="selectionFat.toggle(row)">
+        </tr>
+      </table>
+</mat-card>
+  
+<!-- Dairy -->
+
+<mat-card class="card-dairy">
+    <table mat-table [dataSource]="dataSourceDairy" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="dairy">
+          <th mat-header-cell *matHeaderCellDef> Dairy </th>
+          <td mat-cell *matCellDef="let element"> {{element.dairy}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="ratio">
+          <th mat-header-cell *matHeaderCellDef> Ratio </th>
+          <td mat-cell *matCellDef="let element"> {{element.ratio}} </td>
+        </ng-container>
+       <!-- Checkbox Column -->
+       <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggleDairy() : null"
+                        [checked]="selectionDairy.hasValue() && isAllSelectedDairy()"
+                        [indeterminate]="selectionDairy.hasValue() && !isAllSelectedDairy()"
+                        [aria-label]="checkboxLabelDairy()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selectionDairy.toggle(row) : null"
+                        [checked]="selectionDairy.isSelected(row)"
+                        [aria-label]="checkboxLabelDairy(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsDairy"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsDairy;"
+            (click)="selectionDairy.toggle(row)">
+        </tr>
+      </table>
+</mat-card>
+
+
+<!-- Fruit -->
+
+<mat-card class="card-fruit">
+    <table mat-table [dataSource]="dataSourceFruit" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="fruit">
+          <th mat-header-cell *matHeaderCellDef> Fruit </th>
+          <td mat-cell *matCellDef="let element"> {{element.fruit}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="ratio">
+          <th mat-header-cell *matHeaderCellDef> Ratio </th>
+          <td mat-cell *matCellDef="let element"> {{element.ratio}} </td>
+        </ng-container>
+       <!-- Checkbox Column -->
+       <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggleFruit() : null"
+                        [checked]="selectionFruit.hasValue() && isAllSelectedFruit()"
+                        [indeterminate]="selectionFruit.hasValue() && !isAllSelectedFruit()"
+                        [aria-label]="checkboxLabelFruit()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selectionFruit.toggle(row) : null"
+                        [checked]="selectionFruit.isSelected(row)"
+                        [aria-label]="checkboxLabelFruit(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsFruit"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsFruit;"
+            (click)="selectionFruit.toggle(row)">
+        </tr>
+      </table>
+</mat-card>
+
+<!-- Snacks -->
+
+<mat-card class="card-snack">
+    <table mat-table [dataSource]="dataSourceSnacks" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="diet">
+          <th mat-header-cell *matHeaderCellDef> Diet </th>
+          <td mat-cell *matCellDef="let element"> {{element.diet}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="ratio">
+          <th mat-header-cell *matHeaderCellDef> Ratio </th>
+          <td mat-cell *matCellDef="let element"> {{element.ratio}} </td>
+        </ng-container>
+
+        <!-- Food Columne -->
+
+        <ng-container matColumnDef="food">
+            <th mat-header-cell *matHeaderCellDef> Food </th>
+            <td mat-cell *matCellDef="let element"> {{element.food}} </td>
+          </ng-container>
+
+
+       <!-- Checkbox Column -->
+       <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggleSnacks() : null"
+                        [checked]="selectionSnacks.hasValue() && isAllSelectedSnacks()"
+                        [indeterminate]="selectionSnacks.hasValue() && !isAllSelectedSnacks()"
+                        [aria-label]="checkboxLabelSnacks()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selectionSnacks.toggle(row) : null"
+                        [checked]="selectionSnacks.isSelected(row)"
+                        [aria-label]="checkboxLabelSnacks(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsSnacks"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsSnacks;"
+            (click)="selectionSnacks.toggle(row)">
+        </tr>
+      </table>
+</mat-card>

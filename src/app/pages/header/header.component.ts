@@ -14,6 +14,6 @@ export class HeaderComponent implements OnInit {
   }
   showFiller = false;
   goHome(){
-   this.router.navigate(['login'])
+   this.router.navigate(['home'])
   }
 }
