@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {  ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -15,7 +16,10 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { BMIComponent } from './pages/bmi/bmi.component';
 import { GuidlinesComponent } from './pages/guidlines/guidlines.component';
 import { PortionControllComponent } from './pages/portion-controll/portion-controll.component';
-import { BreakfastComponent } from './pages/breakfast/breakfast.component'
+import { BreakfastComponent } from './pages/breakfast/breakfast.component';
+import { LunchComponent } from './pages/lunch/lunch.component';
+import { DinnerComponent } from './pages/dinner/dinner.component';
+import { DailyReportComponent } from './pages/daily-report/daily-report.component'
 
 @NgModule({
   declarations: [
@@ -27,10 +31,14 @@ import { BreakfastComponent } from './pages/breakfast/breakfast.component'
     BMIComponent,
     GuidlinesComponent,
     PortionControllComponent,
-    BreakfastComponent
+    BreakfastComponent,
+    LunchComponent,
+    DinnerComponent,
+    DailyReportComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     MaterialModule,
     ReactiveFormsModule,

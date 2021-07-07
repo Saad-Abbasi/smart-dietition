@@ -39,64 +39,66 @@ export interface snacks {
 
 // DataSources
 const CARBS_DATA: carbs[] = [
-  {carbs: '1p', ratio: '80g boiled rice'},
-  {carbs: '2p', ratio: '60g roti'},
-  {carbs: '2p', ratio: 'Cd size maize roti'},
-  {carbs: '1p', ratio: '1 slice bran bread'},
-  {carbs: '2p', ratio: '2 bread size'}
+  {carbs: '2p', ratio: '65g roti'},
+  {carbs: '2p', ratio: '12 tbs palau'},
+  {carbs: '1p', ratio: '60 g nan'},
+  {carbs: '1p', ratio: '120 g boiled rice'},
+  {carbs: '2p', ratio: '5tbs flour'}
 ];
 const PROTEIN_DATA: proteins[] = [
-  {protein: '1p', ratio: '2 eggs'},
-  {protein: '1p', ratio: '80g chicken '},
-  {protein: '1p', ratio: '25g Basan'},
-  {protein: '1p', ratio: '2 tbs basan'},
-  {protein: '2p', ratio: '1 boiled egg'}
+  {protein: '2p', ratio: '160 bbq'},
+  {protein: '1p', ratio: '5 tbs dall'},
+  {protein: '1p', ratio: 'Palm size chicken tikkah'},
+  {protein: '1p', ratio: '140g channa'},
+  {protein: '1p', ratio: '70g boiled dall'}
 ];
 
 const FATS_DATA: fats[] = [
-  {fat: '1p', ratio: 'Omelet 1tbs oil'},
+  {fat: '1p', ratio: '1tbs cooking oil'},
   {fat: '1p', ratio: '1tbs dasi ghee'},
-  {fat: '1p', ratio: ' 2 tbl cream '},
-  {fat: '1.5p', ratio: '1tbs olive oil'},
+  {fat: '1p', ratio: ' 2tbs coconut oil'},
+  {fat: '0.5p', ratio: '1tbs olive oil'},
   {fat: '0.5p', ratio: '1tbs cheese'}
 ];
 
 const DAIRY_DATA: dairy[] = [
-  {dairy: '1.5p', ratio: '80g chees'},
-  {dairy: '1p', ratio: '100ml Soya Milk'},
-  {dairy: '1p', ratio: ' 200ml ml milk '},
-  {dairy: '1p', ratio: '200 ml milk in tea'},
-  {dairy: '1p', ratio: 'Half glass Almond milk'}
+  {dairy: '1p', ratio: '3tbs dahi'},
+  {dairy: '1p', ratio: '1 glass lasi'},
+  {dairy: '1p', ratio: ' 200ml milk shake'},
+  {dairy: '1p', ratio: '200 milk'},
+  {dairy: '1p', ratio: '4 tbs raita'}
 ];
 
 const FRUIT_DATA: fruit[] = [
-  {fruit: '1p', ratio: '80g strawberry'},
-  {fruit: '1p', ratio: '1 Palm size mango'},
+  {fruit: '1p', ratio: '80g cherries'},
+  {fruit: '1p', ratio: 'Palm size plam'},
   {fruit: '1p', ratio: '3 dates'},
-  {fruit: '1p', ratio: '80g fig'},
-  {fruit: '1p', ratio: '1 kiwi '}
+  {fruit: '1p', ratio: '80g gava'},
+  {fruit: '1p', ratio: '80g mango'}
 ];
 
 const SNACKS_DATA: snacks[] = [
   {diet: 'carbs', ratio: '1p',food:'2 breads'},
-  {diet: 'protein', ratio: '0.5',food:'2 breads'},
+  {diet: 'protein', ratio: '0.5',food:'8g chicken'},
   {diet: 'fat', ratio: '1p',food:'1 chocolates'},
   {diet: 'dairy', ratio: '1p',food:'200ml milk'},
   {diet: 'fruit', ratio: '1p',food:'79g mango'}
 ];
 
 
+
 @Component({
-  selector: 'app-breakfast',
-  templateUrl: './breakfast.component.html',
-  styleUrls: ['./breakfast.component.scss']
+  selector: 'app-lunch',
+  templateUrl: './lunch.component.html',
+  styleUrls: ['./lunch.component.scss']
 })
-export class BreakfastComponent implements OnInit {
+export class LunchComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
   displayedColumnsCarbs: string[] = ['carbs', 'ratio','select'];
   displayedColumnsProtein: string[] = ['protein', 'ratio','select'];
   displayedColumnsFat: string[] = ['fat', 'ratio','select'];
@@ -249,24 +251,23 @@ export class BreakfastComponent implements OnInit {
       return `${this.isAllSelectedSnacks() ? 'deselect' : 'select'} all`;
     }
     return `${this.selectionSnacks.isSelected(row) ? 'deselect' : 'select'} row ${row.diet + 1}`;
-  }
-
-  carbsDiet(row){
-    console.log(row)
-  }
-  fatDiet(row){
-    console.log(row)
-  }
-  dairyDiet(row){
-    console.log(row)
-  }
-  fruitDiet(row){
-    console.log(row)
-  }
-  proteinDiet(row){
-    console.log(row)
-  }
-  snacksDiet(row){
-    console.log(row)
-  }
+}
+carbsDiet(row){
+  console.log(row)
+}
+fatDiet(row){
+  console.log(row)
+}
+dairyDiet(row){
+  console.log(row)
+}
+fruitDiet(row){
+  console.log(row)
+}
+proteinDiet(row){
+  console.log(row)
+}
+snacksDiet(row){
+  console.log(row)
+}
 }
