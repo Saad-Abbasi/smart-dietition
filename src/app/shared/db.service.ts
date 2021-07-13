@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { openDB, DBSchema, IDBPDatabase } from 'idb';
 import {User} from '../shared/models/user';
-import {Dexie} from 'dexie';
+import Dexie from 'dexie';
 
 
 @Injectable({
