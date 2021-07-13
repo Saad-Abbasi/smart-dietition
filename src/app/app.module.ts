@@ -19,8 +19,7 @@ import { PortionControllComponent } from './pages/portion-controll/portion-contr
 import { BreakfastComponent } from './pages/breakfast/breakfast.component';
 import { LunchComponent } from './pages/lunch/lunch.component';
 import { DinnerComponent } from './pages/dinner/dinner.component';
-import { DailyReportComponent } from './pages/daily-report/daily-report.component'
-
+import { DailyReportComponent } from './pages/daily-report/daily-report.component';
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,37 +1,79 @@
 import { Injectable } from '@angular/core';
 import { openDB, DBSchema, IDBPDatabase } from 'idb';
+import {User} from '../shared/models/user';
+import {Dexie} from 'dexie';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class DbService {
-  private db: IDBPDatabase<MyDB>;
+  // private db: IDBPDatabase<MyDB>;
+  private db: any;
   constructor() {
-    this.connectToDb();
+    this.createDatabase()
+    // this.connectToDb();
   }
-
-  async connectToDb() {
-    this.db = await openDB<MyDB>('my-db', 1, {
-      upgrade(db) {
-        db.createObjectStore('user-store');
-      },
-    });
-  }
-
-  addUser(name: string) {
-    return this.db.put('user-store', name, 'name')
-    
-  }
-
-  deleteUser(key: string) {
-    return this.db.delete('user-store', key);
-  }
+// Create database 
+private createDatabase() {
+  this.db = new Dexie('dietDb');
+  this.db.version(1).stores({
+    user: 'email,password,fName,lName'
+  });
 }
 
-interface MyDB extends DBSchema {
-  'user-store': {
-    key: string;
-    value: string;
-  };
+
+
+ registerUser(user: User) {
+  return this.db.user.add(user)
+    
+}
+
+async getUser(email:string){
+
+
+ return this.db.user.get({email: email})
+//  .then(async (result) => {
+//   console.log('Found in DB, DB is now', result);
+// })
+// .catch(e => {
+//   alert('Error: ' + (e.stack || e));
+// });
+
+  // this.db.user
+  // .add(user)
+  // .then(async () => {
+  //   const allItems: User = await this.db.user.toArray();
+  //   console.log('saved in DB, DB is now', allItems);
+  // })
+  // .catch(e => {
+  //   alert('Error: ' + (e.stack || e));
+  // });
+    
+}
+  // async connectToDb() {
+  //   this.db = await openDB<MyDB>('my-db', 1, {
+  //     upgrade(db) {
+  //       db.createObjectStore('user-store');
+  //     },
+  //   });
+  // }
+
+//   addUser(user: User) {
+    
+//     console.log('funtion called')
+//     return this.db.put('user-store',user)
+    
+//   }
+
+//   deleteUser(key: string) {
+//     return this.db.delete('user-store', key);
+//   }
+// }
+
+// interface MyDB extends DBSchema {
+//   'user-store': {
+//     key: string;
+//     value: string;
+//   };
 }

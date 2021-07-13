@@ -5,43 +5,42 @@
         
         <h4>Welcome to smart Dietation</h4>
         <h1>Signup</h1>
+        <form [formGroup]="regForm" (submit)="registerUser()">
         <mat-form-field class="example-form-field" appearance="fill">
             <mat-label>First Name</mat-label>
-            <input matInput type="text" >
+            <input matInput type="text" formControlName="fName" autocomplete="off" >
             <button  matSuffix mat-icon-button aria-label="Clear" >
               <mat-icon>create</mat-icon>
             </button>
           </mat-form-field>
           <mat-form-field class="example-form-field" appearance="fill">
             <mat-label>Last Name</mat-label>
-            <input matInput type="text" >
+            <input matInput type="text" formControlName="lName" autocomplete="off" >
             <button  matSuffix mat-icon-button aria-label="Clear" >
               <mat-icon>create</mat-icon>
             </button>
           </mat-form-field>
           <mat-form-field class="example-form-field" appearance="fill">
             <mat-label>Email</mat-label>
-            <input matInput type="text" >
+            <input matInput type="email" formControlName="email" autocomplete="off">
             <button  matSuffix mat-icon-button aria-label="Clear" >
               <mat-icon>email</mat-icon>
             </button>
           </mat-form-field>
           <mat-form-field class="example-form-field" appearance="fill">
             <mat-label>Password</mat-label>
-            <input matInput type="text" >
+            <input matInput type="password" formControlName="pass" autocomplete="off" >
             <button  matSuffix mat-icon-button aria-label="Clear" >
               <mat-icon>vpn_key</mat-icon>
             </button>
           </mat-form-field>
-        
-          
           <div class="register">
-            <button mat-raised-button color="primary">
+            <button mat-raised-button color="primary" >
                 Register 
             </button>
-            <span> Already  registerd? <a routerLink="/login" >Sign in</a></span>
-                
+            <span> Already  registerd? <a routerLink="/login" >Sign in</a></span>  
           </div>
+        </form>
     </mat-card>
 </div>
 

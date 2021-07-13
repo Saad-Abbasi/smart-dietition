@@ -39,50 +39,50 @@ export interface snacks {
 
 // DataSources
 const CARBS_DATA: carbs[] = [
-  {carbs: '1p', ratio: '80g boiled rice'},
-  {carbs: '2p', ratio: '60g roti'},
-  {carbs: '2p', ratio: 'Cd size maize roti'},
-  {carbs: '1p', ratio: '1 slice bran bread'},
-  {carbs: '2p', ratio: '2 bread size'}
+  {carbs: '1', ratio: '80g boiled rice'},
+  {carbs: '2', ratio: '60g roti'},
+  {carbs: '2', ratio: 'Cd size maize roti'},
+  {carbs: '1', ratio: '1 slice bran bread'},
+  {carbs: '2', ratio: '2 bread size'}
 ];
 const PROTEIN_DATA: proteins[] = [
-  {protein: '1p', ratio: '2 eggs'},
-  {protein: '1p', ratio: '80g chicken '},
-  {protein: '1p', ratio: '25g Basan'},
-  {protein: '1p', ratio: '2 tbs basan'},
-  {protein: '2p', ratio: '1 boiled egg'}
+  {protein: '1', ratio: '2 eggs'},
+  {protein: '1', ratio: '80g chicken '},
+  {protein: '1', ratio: '25g Basan'},
+  {protein: '1', ratio: '2 tbs basan'},
+  {protein: '2', ratio: '1 boiled egg'}
 ];
 
 const FATS_DATA: fats[] = [
-  {fat: '1p', ratio: 'Omelet 1tbs oil'},
-  {fat: '1p', ratio: '1tbs dasi ghee'},
-  {fat: '1p', ratio: ' 2 tbl cream '},
-  {fat: '1.5p', ratio: '1tbs olive oil'},
-  {fat: '0.5p', ratio: '1tbs cheese'}
+  {fat: '1', ratio: 'Omelet 1tbs oil'},
+  {fat: '1', ratio: '1tbs dasi ghee'},
+  {fat: '1', ratio: ' 2 tbl cream '},
+  {fat: '1.5', ratio: '1tbs olive oil'},
+  {fat: '0.5', ratio: '1tbs cheese'}
 ];
 
 const DAIRY_DATA: dairy[] = [
-  {dairy: '1.5p', ratio: '80g chees'},
-  {dairy: '1p', ratio: '100ml Soya Milk'},
-  {dairy: '1p', ratio: ' 200ml ml milk '},
-  {dairy: '1p', ratio: '200 ml milk in tea'},
-  {dairy: '1p', ratio: 'Half glass Almond milk'}
+  {dairy: '1.5', ratio: '80g chees'},
+  {dairy: '1', ratio: '100ml Soya Milk'},
+  {dairy: '1', ratio: ' 200ml ml milk '},
+  {dairy: '1', ratio: '200 ml milk in tea'},
+  {dairy: '1', ratio: 'Half glass Almond milk'}
 ];
 
 const FRUIT_DATA: fruit[] = [
-  {fruit: '1p', ratio: '80g strawberry'},
-  {fruit: '1p', ratio: '1 Palm size mango'},
-  {fruit: '1p', ratio: '3 dates'},
-  {fruit: '1p', ratio: '80g fig'},
-  {fruit: '1p', ratio: '1 kiwi '}
+  {fruit: '1', ratio: '80g strawberry'},
+  {fruit: '1', ratio: '1 Palm size mango'},
+  {fruit: '1', ratio: '3 dates'},
+  {fruit: '1', ratio: '80g fig'},
+  {fruit: '1', ratio: '1 kiwi '}
 ];
 
 const SNACKS_DATA: snacks[] = [
-  {diet: 'carbs', ratio: '1p',food:'2 breads'},
+  {diet: 'carbs', ratio: '1',food:'2 breads'},
   {diet: 'protein', ratio: '0.5',food:'2 breads'},
-  {diet: 'fat', ratio: '1p',food:'1 chocolates'},
-  {diet: 'dairy', ratio: '1p',food:'200ml milk'},
-  {diet: 'fruit', ratio: '1p',food:'79g mango'}
+  {diet: 'fat', ratio: '1',food:'1 chocolates'},
+  {diet: 'dairy', ratio: '1',food:'200ml milk'},
+  {diet: 'fruit', ratio: '1',food:'79g mango'}
 ];
 
 

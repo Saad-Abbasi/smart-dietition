@@ -5,3 +5,10 @@ th{
     font-size: large;
     font-weight: bold;
 }
+
+// For table Title
+mat-card{
+  mat-card-title{
+    padding: 0px 0px 5px 5px;
+  }
+}
