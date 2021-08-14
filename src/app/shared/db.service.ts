@@ -34,6 +34,10 @@ private createDatabase() {
  registerUser(user: User) {
   return this.db.user.add(user)
 }
+// Get User 
+async getUser(email:string){
+  return this.db.user.get({email: email})
+}
 // Creating breakFast
 addBreakfast(breakFast){
   return this.db.breakFast.add({
@@ -74,6 +78,36 @@ addmSnacks(mSnacks){
   })
 
 }
+// Creating Lunch
+addlunch(lunch){
+  return this.db.lunch.add({
+    date: new Date().getDate(),
+    carbs:lunch.carbs,
+    cRatio:lunch.cRatio,
+    protein:lunch.protein,
+    pRatio:lunch.pRatio,
+    fats:lunch.fats,
+    fRatio:lunch.fRatio,
+    dairy:lunch.dairy,
+    dRatio:lunch.dRatio,
+    fruit:lunch.fruit,
+    frRatio:lunch.frRatio
+  })
+}
+// Update BreakFast
+updateLunch(key,lunchData){
+  this.db.lunch.update(key, lunchData).then(function (updated) {
+    if (updated)
+      console.log ("Lunch Updated Record");
+    else
+      console.log ("Nothing was updated ");
+  });
+}
+// Get breakfast
+async getLunch(date){
+    return this.db.lunch.get({date: date})
+}
+
 
 // Update mSnacks
 updateMSnacks(key,mSnacksData){
@@ -90,7 +124,7 @@ async getmSnacks(date){
 }
 
 
-// Creating Lunch
+
 
 // Creating Evening Snacks
 addeSnacks(eSnacks){
@@ -120,10 +154,36 @@ async geteSnacks(date){
 }
 
 // Creating Dinner
-
-
-
-async getUser(email:string){
-  return this.db.user.get({email: email})
+addDinner(dinner){
+  return this.db.dinner.add({
+    date: new Date().getDate(),
+    carbs:dinner.carbs,
+    cRatio:dinner.cRatio,
+    protein:dinner.protein,
+    pRatio:dinner.pRatio,
+    fats:dinner.fats,
+    fRatio:dinner.fRatio,
+    dairy:dinner.dairy,
+    dRatio:dinner.dRatio,
+    fruit:dinner.fruit,
+    frRatio:dinner.frRatio
+  })
 }
+// Update Dinner
+updateDinner(key,dinnerData){
+  this.db.dinner.update(key, dinnerData).then(function (updated) {
+    if (updated)
+      console.log ("Dinner Updated Record");
+    else
+      console.log ("Nothing was updated ");
+  });
+}
+// Get Dinner
+async getDinner(date){
+    return this.db.dinner.get({date: date})
+}
+
+
+
+
 }

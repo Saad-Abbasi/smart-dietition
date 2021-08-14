@@ -1,6 +1,7 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { DbService } from 'src/app/shared/db.service';
 
 export interface carbs {
   carbs: string;
@@ -93,8 +94,25 @@ const SNACKS_DATA: snacks[] = [
   styleUrls: ['./lunch.component.scss']
 })
 export class LunchComponent implements OnInit {
-
-  constructor() { }
+  lunchData ={
+    carbs:'',
+    cRatio:'',
+    protein:'',
+    pRatio:'',
+    fats:'',
+    fRatio:'',
+    dairy:'',
+    dRatio:'',
+    fruit:'',
+    frRatio:''
+  }
+  selectedIndex;
+  selectedIndex2;
+  selectedIndex3;
+  selectedIndex4;
+  selectedIndex5;
+  keyDate = new Date().getDate();
+    constructor(private dbService:DbService) { }
 
   ngOnInit(): void {
   }
@@ -252,22 +270,135 @@ export class LunchComponent implements OnInit {
     }
     return `${this.selectionSnacks.isSelected(row) ? 'deselect' : 'select'} row ${row.diet + 1}`;
 }
-carbsDiet(row){
-  console.log(row)
+carbsDiet(row,index){
+  this.selectedIndex = index;
+  this.syncData(this.keyDate)
+  this.lunchData.carbs = row.carbs;
+  this.lunchData.cRatio = row.ratio;
+  this.dbService.addlunch(this.lunchData)
+  .then(async (res) => {
+    console.log('Saved in DB, DB is now', res);
+  })
+  .catch(e => {
+    this.lunchData.carbs = row.carbs;
+  this.lunchData.cRatio = row.ratio;
+    this.dbService.updateLunch(this.keyDate,this.lunchData);
+    // alert(' Already Exist!')
+    // console.log('Error: ' + (e.stack || e));
+  
+  });
 }
-fatDiet(row){
-  console.log(row)
+proteinDiet(row,index){
+  this.selectedIndex2 = index;
+  this.syncData(this.keyDate)
+  this.lunchData.protein = row.protein;
+  this.lunchData.pRatio = row.ratio;
+  this.dbService.addlunch(this.lunchData)
+  .then(async (res) => {
+    console.log('Saved in DB, DB is now', res);
+  })
+  .catch(e => {
+    this.lunchData.protein = row.protein;
+    this.lunchData.pRatio = row.ratio;
+    this.dbService.updateLunch(this.keyDate,this.lunchData);
+    // alert(' Already Exist!')
+    // console.log('Error: ' + (e.stack || e));
+  
+  });
+  
 }
-dairyDiet(row){
-  console.log(row)
+
+fatDiet(row,index){
+  this.selectedIndex3 = index;
+  this.syncData(this.keyDate)
+  this.lunchData.fats = row.fat;
+  this.lunchData.fRatio = row.ratio;
+  this.dbService.addlunch(this.lunchData)
+  .then(async (res) => {
+    console.log('Saved in DB, DB is now', res);
+  })
+  .catch(e => {
+  this.lunchData.fats = row.fat;
+  this.lunchData.fRatio = row.ratio;
+    console.log('data befor update', this.lunchData)
+    this.dbService.updateLunch(this.keyDate,this.lunchData);
+    // alert(' Already Exist!')
+    // console.log('Error: ' + (e.stack || e));
+  
+  });
 }
-fruitDiet(row){
-  console.log(row)
+async dairyDiet(row,index){
+  this.selectedIndex4 = index;
+  await this.syncData(this.keyDate)
+  this.lunchData.dairy = row.dairy;
+    this.lunchData.dRatio = row.ratio
+  this.dbService.addlunch(this.lunchData)
+  .then(async (res) => {
+    console.log('Saved in DB, DB is now', res);
+  })
+  .catch(e => {
+    this.lunchData.dairy = row.dairy;
+    this.lunchData.dRatio = row.ratio
+    console.log('data befor update', this.lunchData)
+    this.dbService.updateLunch(this.keyDate,this.lunchData);
+    // alert(' Already Exist!')
+    // console.log('Error: ' + (e.stack || e));
+  
+  });
+ 
 }
-proteinDiet(row){
-  console.log(row)
+async fruitDiet(row,index){
+  this.selectedIndex5 = index;
+  await this.syncData(this.keyDate)
+  this.lunchData.fruit = row.fruit;
+  this.lunchData.frRatio = row.ratio;
+  console.log(this.lunchData)
+  this.dbService.addlunch(this.lunchData)
+  .then(async (res) => {
+    console.log('Saved in DB, DB is now', res);
+  })
+  .catch(e => {
+    this.lunchData.fruit = row.fruit;
+    this.lunchData.frRatio = row.ratio;
+    this.dbService.updateLunch(this.keyDate,this.lunchData);
+    // alert(' Already Exist!')
+    // console.log('Error: ' + (e.stack || e));
+  
+  });
+  
 }
-snacksDiet(row){
-  console.log(row)
+
+syncData(keyDate){
+  this.dbService.getLunch(keyDate).then( async (res)=>{
+    console.log("Data of BreakFast is ", res)
+    this.lunchData.carbs = res.carbs;
+    this.lunchData.cRatio = res.cRatio;
+    this.lunchData.protein = res.protein;
+    this.lunchData.pRatio = res.pRatio;
+    this.lunchData.fats = res.fats;
+    this.lunchData.fRatio = res.fRatio;
+    this.lunchData.dairy = res.dairy;
+    this.lunchData.dRatio = res.dRatio;
+    this.lunchData.fruit = res.fruit;
+    this.lunchData.frRatio = res.frRatio;
+  })
 }
+// carbsDiet(row){
+//   console.log(row)
+// }
+// fatDiet(row){
+//   console.log(row)
+// }
+// dairyDiet(row){
+//   console.log(row)
+// }
+// fruitDiet(row){
+//   console.log(row)
+// }
+// proteinDiet(row){
+//   console.log(row)
+// }
+// snacksDiet(row){
+//   console.log(row)
+// }
 }

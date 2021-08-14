@@ -1,6 +1,7 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { DbService } from 'src/app/shared/db.service';
 
 export interface carbs {
   carbs: string;
@@ -93,7 +94,25 @@ const SNACKS_DATA: snacks[] = [
 })
 export class DinnerComponent implements OnInit {
 
-  constructor() { }
+  dinnerData ={
+    carbs:'',
+    cRatio:'',
+    protein:'',
+    pRatio:'',
+    fats:'',
+    fRatio:'',
+    dairy:'',
+    dRatio:'',
+    fruit:'',
+    frRatio:''
+  }
+  selectedIndex;
+  selectedIndex2;
+  selectedIndex3;
+  selectedIndex4;
+  selectedIndex5;
+  keyDate = new Date().getDate();
+    constructor(private dbService:DbService) { }
 
   ngOnInit(): void {
   }
@@ -252,22 +271,117 @@ export class DinnerComponent implements OnInit {
     return `${this.selectionSnacks.isSelected(row) ? 'deselect' : 'select'} row ${row.diet + 1}`;
 }
 
-carbsDiet(row){
-  console.log(row)
+carbsDiet(row,index){
+  this.selectedIndex = index;
+  this.syncData(this.keyDate)
+  this.dinnerData.carbs = row.carbs;
+  this.dinnerData.cRatio = row.ratio;
+  this.dbService.addDinner(this.dinnerData)
+  .then(async (res) => {
+    console.log('Saved in DB, DB is now', res);
+  })
+  .catch(e => {
+    this.dinnerData.carbs = row.carbs;
+  this.dinnerData.cRatio = row.ratio;
+    this.dbService.updateDinner(this.keyDate,this.dinnerData);
+    // alert(' Already Exist!')
+    // console.log('Error: ' + (e.stack || e));
+  
+  });
 }
-fatDiet(row){
-  console.log(row)
+proteinDiet(row,index){
+  this.selectedIndex2 = index;
+  this.syncData(this.keyDate)
+  this.dinnerData.protein = row.protein;
+  this.dinnerData.pRatio = row.ratio;
+  this.dbService.addDinner(this.dinnerData)
+  .then(async (res) => {
+    console.log('Saved in DB, DB is now', res);
+  })
+  .catch(e => {
+    this.dinnerData.protein = row.protein;
+    this.dinnerData.pRatio = row.ratio;
+    this.dbService.updateDinner(this.keyDate,this.dinnerData);
+    // alert(' Already Exist!')
+    // console.log('Error: ' + (e.stack || e));
+  
+  });
+  
 }
-dairyDiet(row){
-  console.log(row)
+
+fatDiet(row,index){
+  this.selectedIndex3 = index;
+  this.syncData(this.keyDate)
+  this.dinnerData.fats = row.fat;
+  this.dinnerData.fRatio = row.ratio;
+  this.dbService.addDinner(this.dinnerData)
+  .then(async (res) => {
+    console.log('Saved in DB, DB is now', res);
+  })
+  .catch(e => {
+  this.dinnerData.fats = row.fat;
+  this.dinnerData.fRatio = row.ratio;
+    console.log('data befor update', this.dinnerData)
+    this.dbService.updateDinner(this.keyDate,this.dinnerData);
+    // alert(' Already Exist!')
+    // console.log('Error: ' + (e.stack || e));
+  
+  });
 }
-fruitDiet(row){
-  console.log(row)
+async dairyDiet(row,index){
+  this.selectedIndex4 = index;
+  await this.syncData(this.keyDate)
+  this.dinnerData.dairy = row.dairy;
+    this.dinnerData.dRatio = row.ratio
+  this.dbService.addDinner(this.dinnerData)
+  .then(async (res) => {
+    console.log('Saved in DB, DB is now', res);
+  })
+  .catch(e => {
+    this.dinnerData.dairy = row.dairy;
+    this.dinnerData.dRatio = row.ratio
+    console.log('data befor update', this.dinnerData)
+    this.dbService.updateDinner(this.keyDate,this.dinnerData);
+    // alert(' Already Exist!')
+    // console.log('Error: ' + (e.stack || e));
+  
+  });
+ 
 }
-proteinDiet(row){
-  console.log(row)
+async fruitDiet(row,index){
+  this.selectedIndex5 = index;
+  await this.syncData(this.keyDate)
+  this.dinnerData.fruit = row.fruit;
+  this.dinnerData.frRatio = row.ratio;
+  console.log(this.dinnerData)
+  this.dbService.addDinner(this.dinnerData)
+  .then(async (res) => {
+    console.log('Saved in DB, DB is now', res);
+  })
+  .catch(e => {
+    this.dinnerData.fruit = row.fruit;
+    this.dinnerData.frRatio = row.ratio;
+    this.dbService.updateDinner(this.keyDate,this.dinnerData);
+    // alert(' Already Exist!')
+    // console.log('Error: ' + (e.stack || e));
+  
+  });
+  
 }
-snacksDiet(row){
-  console.log(row)
+
+syncData(keyDate){
+  this.dbService.getDinner(keyDate).then( async (res)=>{
+    console.log("Data of Dinner  is ", res)
+    this.dinnerData.carbs = res.carbs;
+    this.dinnerData.cRatio = res.cRatio;
+    this.dinnerData.protein = res.protein;
+    this.dinnerData.pRatio = res.pRatio;
+    this.dinnerData.fats = res.fats;
+    this.dinnerData.fRatio = res.fRatio;
+    this.dinnerData.dairy = res.dairy;
+    this.dinnerData.dRatio = res.dRatio;
+    this.dinnerData.fruit = res.fruit;
+    this.dinnerData.frRatio = res.frRatio;
+  })
 }
 }

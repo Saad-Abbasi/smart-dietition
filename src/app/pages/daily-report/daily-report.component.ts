@@ -90,12 +90,31 @@ getMSnacks(today){
 }
 getLunch(today){
 
+  this.dbService.getLunch(today)
+  .then(res=>{
+    if(res){
+      console.log('Lunch data is ', res)
+      REPORT_DATA[2].carbs = res.carbs;
+      REPORT_DATA[2].dairy = res.dairy;
+      REPORT_DATA[2].proteins = res.protein;
+      REPORT_DATA[2].fats = res.fats;
+      REPORT_DATA[2].fruits= res.fruit;
+      // Uniray Plust to make total because our data come in string.
+      REPORT_DATA[2].total =  + REPORT_DATA[2].carbs + +REPORT_DATA[2].dairy + +REPORT_DATA[2].proteins + +REPORT_DATA[2].fats +  +REPORT_DATA[2].fruits
+      
+    }
+    else{
+      console.log('No data for today', this.today)
+    }
+  })
+
+
 }
 getESnacks(today){
   this.dbService.geteSnacks(today)
   .then(res=>{
     if(res){
-      console.log('Msnacks data is ', res)
+      console.log('Esnacks data is ', res)
       if(res.diet=="fruit"){
         REPORT_DATA[3].fruits= res.ratio;
       }
@@ -122,7 +141,23 @@ getESnacks(today){
   })
 }
 getDinner(today){
-
+  this.dbService.getDinner(today)
+  .then(res=>{
+    if(res){
+      console.log('Dinner data is ', res)
+      REPORT_DATA[4].carbs = res.carbs;
+      REPORT_DATA[4].dairy = res.dairy;
+      REPORT_DATA[4].proteins = res.protein;
+      REPORT_DATA[4].fats = res.fats;
+      REPORT_DATA[4].fruits= res.fruit;
+      // Uniray Plust to make total because our data come in string.
+      REPORT_DATA[4].total =  + REPORT_DATA[4].carbs + +REPORT_DATA[4].dairy + +REPORT_DATA[4].proteins + +REPORT_DATA[4].fats +  +REPORT_DATA[4].fruits
+      
+    }
+    else{
+      console.log('No data for today', this.today)
+    }
+  })
 }
 
 // End Methods
