@@ -42,3 +42,15 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
     border: 2px solid white;
     color: white;
 }
+.banner{
+  height: 240px;
+  max-height: 300px;
+  width: 100%;
+  background-size: cover;
+  img{
+      width: 100%;
+      
+  }
+  padding-bottom: 20px;
+  background-color: #ff4081;
+}
