@@ -1,6 +1,7 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import {DbService} from '../../shared/db.service'
 
 export interface carbs {
   carbs: string;
@@ -11,10 +12,10 @@ export interface proteins {
   ratio: string
 }
 
-export interface proteins {
-  protein: string;
-  ratio: string
-}
+// export interface proteins {
+//   protein: string;
+//   ratio: string
+// }
 
 export interface fats {
   fat: string;
@@ -92,8 +93,25 @@ const SNACKS_DATA: snacks[] = [
   styleUrls: ['./breakfast.component.scss']
 })
 export class BreakfastComponent implements OnInit {
-
-  constructor() { }
+breakFastData ={
+  carbs:'',
+  cRatio:'',
+  protein:'',
+  pRatio:'',
+  fats:'',
+  fRatio:'',
+  dairy:'',
+  dRatio:'',
+  fruit:'',
+  frRatio:''
+}
+selectedIndex;
+selectedIndex2;
+selectedIndex3;
+selectedIndex4;
+selectedIndex5;
+keyDate = new Date().getDate();
+  constructor(private dbService:DbService) { }
 
   ngOnInit(): void {
   }
@@ -251,22 +269,121 @@ export class BreakfastComponent implements OnInit {
     return `${this.selectionSnacks.isSelected(row) ? 'deselect' : 'select'} row ${row.diet + 1}`;
   }
 
-  carbsDiet(row){
-    console.log(row)
+  carbsDiet(row,index){
+    this.selectedIndex = index;
+    this.syncData(this.keyDate)
+    this.breakFastData.carbs = row.carbs;
+    this.breakFastData.cRatio = row.ratio;
+    this.dbService.addBreakfast(this.breakFastData)
+    .then(async (res) => {
+      console.log('Saved in DB, DB is now', res);
+    })
+    .catch(e => {
+      this.breakFastData.carbs = row.carbs;
+    this.breakFastData.cRatio = row.ratio;
+      this.dbService.updateBreakfast(this.keyDate,this.breakFastData);
+      // alert(' Already Exist!')
+      // console.log('Error: ' + (e.stack || e));
+    
+    });
   }
-  fatDiet(row){
-    console.log(row)
+  proteinDiet(row,index){
+    this.selectedIndex2 = index;
+    this.syncData(this.keyDate)
+    this.breakFastData.protein = row.protein;
+    this.breakFastData.pRatio = row.ratio;
+    this.dbService.addBreakfast(this.breakFastData)
+    .then(async (res) => {
+      console.log('Saved in DB, DB is now', res);
+    })
+    .catch(e => {
+      this.breakFastData.protein = row.protein;
+      this.breakFastData.pRatio = row.ratio;
+      this.dbService.updateBreakfast(this.keyDate,this.breakFastData);
+      // alert(' Already Exist!')
+      // console.log('Error: ' + (e.stack || e));
+    
+    });
+    
   }
-  dairyDiet(row){
-    console.log(row)
+  
+  fatDiet(row,index){
+    this.selectedIndex3 = index;
+    this.syncData(this.keyDate)
+    this.breakFastData.fats = row.fat;
+    this.breakFastData.fRatio = row.ratio;
+    this.dbService.addBreakfast(this.breakFastData)
+    .then(async (res) => {
+      console.log('Saved in DB, DB is now', res);
+    })
+    .catch(e => {
+    this.breakFastData.fats = row.fat;
+    this.breakFastData.fRatio = row.ratio;
+      console.log('data befor update', this.breakFastData)
+      this.dbService.updateBreakfast(this.keyDate,this.breakFastData);
+      // alert(' Already Exist!')
+      // console.log('Error: ' + (e.stack || e));
+    
+    });
   }
-  fruitDiet(row){
-    console.log(row)
+  async dairyDiet(row,index){
+    this.selectedIndex4 = index;
+    await this.syncData(this.keyDate)
+    this.breakFastData.dairy = row.dairy;
+      this.breakFastData.dRatio = row.ratio
+    this.dbService.addBreakfast(this.breakFastData)
+    .then(async (res) => {
+      console.log('Saved in DB, DB is now', res);
+    })
+    .catch(e => {
+      this.breakFastData.dairy = row.dairy;
+      this.breakFastData.dRatio = row.ratio
+      console.log('data befor update', this.breakFastData)
+      this.dbService.updateBreakfast(this.keyDate,this.breakFastData);
+      // alert(' Already Exist!')
+      // console.log('Error: ' + (e.stack || e));
+    
+    });
+   
   }
-  proteinDiet(row){
-    console.log(row)
+  async fruitDiet(row,index){
+    this.selectedIndex5 = index;
+    await this.syncData(this.keyDate)
+    this.breakFastData.fruit = row.fruit;
+    this.breakFastData.frRatio = row.ratio;
+    console.log(this.breakFastData)
+    this.dbService.addBreakfast(this.breakFastData)
+    .then(async (res) => {
+      console.log('Saved in DB, DB is now', res);
+    })
+    .catch(e => {
+      this.breakFastData.fruit = row.fruit;
+      this.breakFastData.frRatio = row.ratio;
+      this.dbService.updateBreakfast(this.keyDate,this.breakFastData);
+      // alert(' Already Exist!')
+      // console.log('Error: ' + (e.stack || e));
+    
+    });
+    
   }
-  snacksDiet(row){
-    console.log(row)
+  
+  syncData(keyDate){
+    this.dbService.getBreakFast(keyDate).then( async (res)=>{
+      console.log("Data of BreakFast is ", res)
+      this.breakFastData.carbs = res.carbs;
+      this.breakFastData.cRatio = res.cRatio;
+      this.breakFastData.protein = res.protein;
+      this.breakFastData.pRatio = res.pRatio;
+      this.breakFastData.fats = res.fats;
+      this.breakFastData.fRatio = res.fRatio;
+      this.breakFastData.dairy = res.dairy;
+      this.breakFastData.dRatio = res.dRatio;
+      this.breakFastData.fruit = res.fruit;
+      this.breakFastData.frRatio = res.frRatio;
+    })
   }
+  
+  // snacksDiet(row){
+  //   console.log(row)
+  // }
 }

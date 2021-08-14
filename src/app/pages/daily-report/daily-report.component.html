@@ -4,45 +4,45 @@
     <mat-card class="card-report">
         <table mat-table [dataSource]="dataSourceReport" class="mat-elevation-z8">
     
-            <ng-container matColumnDef="groups" sticky>
-                <th mat-header-cell *matHeaderCellDef> Groups </th>
-                <td mat-cell *matCellDef="let element"> {{element.groups}} </td>
+            <ng-container matColumnDef="dietTime" sticky>
+                <th mat-header-cell *matHeaderCellDef> Diet </th>
+                <td  mat-cell *matCellDef="let element"> {{element.dietTime}} </td>
               </ng-container>
             <!-- Position Column -->
-            <ng-container matColumnDef="breakFast">
-              <th mat-header-cell *matHeaderCellDef> Break Fast </th>
-              <td mat-cell *matCellDef="let element"> {{element.breakFast}} </td>
+            <ng-container matColumnDef="carbs">
+              <th mat-header-cell *matHeaderCellDef> Carbs </th>
+              <td  [ngClass]="element.carbs < 1 ? 'error' : 'pCompleted'"  mat-cell *matCellDef="let element"> {{element.carbs}} p</td>
             </ng-container>
           
             <!-- Name Column -->
-            <ng-container matColumnDef="lunch">
-              <th mat-header-cell *matHeaderCellDef> Lunch </th>
-              <td mat-cell *matCellDef="let element"> {{element.lunch}} </td>
+            <ng-container matColumnDef="proteins">
+              <th mat-header-cell *matHeaderCellDef> Proteins </th>
+              <td  [ngClass]="element.proteins < 1 ? 'error' : 'pCompleted'"  mat-cell *matCellDef="let element"> {{element.proteins}} p </td>
             </ng-container>
     
             <!-- Dinner Columne -->
     
-            <ng-container matColumnDef="dinner">
-                <th mat-header-cell *matHeaderCellDef>Dinner</th>
-                <td mat-cell *matCellDef="let element"> {{element.dinner}} </td>
+            <ng-container matColumnDef="dairy">
+                <th mat-header-cell *matHeaderCellDef>Dairy</th>
+                <td  [ngClass]="element.dairy < 1 ? 'error' : 'pCompleted'"  mat-cell *matCellDef="let element"> {{element.dairy}} p</td>
               </ng-container>
     
                <!-- Morining Snacks Columne -->
-              <ng-container matColumnDef="mSnacks">
-                <th mat-header-cell *matHeaderCellDef>Morining Snacks</th>
-                <td mat-cell *matCellDef="let element"> {{element.mSnacks}} </td>
+              <ng-container matColumnDef="fats">
+                <th mat-header-cell *matHeaderCellDef>Fats</th>
+                <td  [ngClass]="element.fats < 1 ? 'error' : 'pCompleted'"  mat-cell *matCellDef="let element"> {{element.fats}} p </td>
               </ng-container>
     
               <!-- Evening Snacks -->
     
-              <ng-container matColumnDef="eSnacks">
-                <th mat-header-cell *matHeaderCellDef>Evening Snacks</th>
-                <td mat-cell *matCellDef="let element"> {{element.eSnacks}} </td>
+              <ng-container matColumnDef="fruits">
+                <th mat-header-cell *matHeaderCellDef>Fruits</th>
+                <td [ngClass]="element.fruits < 1 ? 'error' : 'pCompleted'"  mat-cell *matCellDef="let element"> {{element.fruits}} p</td>
               </ng-container>
     
               <ng-container matColumnDef="total">
                 <th mat-header-cell *matHeaderCellDef>Total Portion</th>
-                <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+                <td  [ngClass]="element.total < 1 ? 'error' : 'pCompleted'"  mat-cell *matCellDef="let element"> {{element.total}} p </td>
               </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumnsReport"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumnsReport;">

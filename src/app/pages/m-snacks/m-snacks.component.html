@@ -1,0 +1,40 @@
+
+<mat-card class="card-snack">
+    <mat-card-title>Snacks</mat-card-title>
+      <table mat-table [dataSource]="dataSourceSnacks" class="mat-elevation-z8">
+          <!-- Position Column -->
+          <ng-container matColumnDef="diet">
+            <th mat-header-cell *matHeaderCellDef> Diet </th>
+            <td mat-cell *matCellDef="let element"> {{element.diet}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="ratio">
+            <th mat-header-cell *matHeaderCellDef> Ratio </th>
+            <td mat-cell *matCellDef="let element"> {{element.ratio}}p </td>
+          </ng-container>
+  
+          <!-- Food Columne -->
+  
+          <ng-container matColumnDef="food">
+              <th mat-header-cell *matHeaderCellDef> Food </th>
+              <td mat-cell *matCellDef="let element"> {{element.food}} </td>
+            </ng-container>
+  
+  
+         <!-- Checkbox Column -->
+         <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            Status
+          </th>
+          <td mat-cell *matCellDef="let row; let i = index">
+            <button [class.btn-succes]='i == selectedIndex' mat-raised-button color="accent" (click)="snacksDiet(row,i)">Done</button>
+          </td>
+        </ng-container>
+          
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsSnacks"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsSnacks;"
+              >
+          </tr>
+        </table>
+  </mat-card>

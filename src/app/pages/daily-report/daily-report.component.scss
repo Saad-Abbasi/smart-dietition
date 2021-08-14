@@ -30,3 +30,15 @@
 th{
     font-size: large;
 }
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+  padding: 2px;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+}
+
+.error{
+  background-color: red;
+    padding-left: 5px !important;
+    border: 2px solid white;
+    color: white;
+}

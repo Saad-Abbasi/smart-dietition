@@ -20,6 +20,8 @@ import { BreakfastComponent } from './pages/breakfast/breakfast.component';
 import { LunchComponent } from './pages/lunch/lunch.component';
 import { DinnerComponent } from './pages/dinner/dinner.component';
 import { DailyReportComponent } from './pages/daily-report/daily-report.component';
+import { MSnacksComponent } from './pages/m-snacks/m-snacks.component';
+import { ESnacksComponent } from './pages/e-snacks/e-snacks.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,9 @@ import { DailyReportComponent } from './pages/daily-report/daily-report.componen
     BreakfastComponent,
     LunchComponent,
     DinnerComponent,
-    DailyReportComponent
+    DailyReportComponent,
+    MSnacksComponent,
+    ESnacksComponent
   ],
   imports: [
     BrowserModule,

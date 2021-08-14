@@ -31,7 +31,7 @@ $accent_color:#ff4081;
       right: 0;
       margin-right: 20px;
     }
-    .snacks{
+    .e-snacks{
       background-image: url('../../../assets/banners/snacks.jpg');
       background-size: cover;
       position: absolute;
@@ -40,6 +40,13 @@ $accent_color:#ff4081;
     }
     .dinner{
       background-image: url('../../../assets/banners/dinner.jpg');
+      background-size: cover;
+      position: absolute;
+      right: 0;
+      margin-right: 20px;
+    }
+    .m-snacks{
+      background-image: url('../../../assets/banners/snacks.jpg');
       background-size: cover;
       position: absolute;
       right: 0;
