@@ -1,5 +1,9 @@
 <mat-card class="card-snack">
-    <mat-card-title>Evening  Snacks</mat-card-title>
+    <mat-card-title>Evening  Snacks
+      <span class="text-right">
+        <button mat-raised-button color="accent"> <a routerLink="/report"> Today's Report</a> </button>
+      </span>
+    </mat-card-title>
       <table mat-table [dataSource]="dataSourceSnacks" class="mat-elevation-z8">
           <!-- Position Column -->
           <ng-container matColumnDef="diet">

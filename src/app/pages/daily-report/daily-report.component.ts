@@ -17,7 +17,8 @@ const REPORT_DATA: dailyReport[] = [
   {dietTime: 'M Snacks', carbs: 0,proteins:0,dairy:0,fats:0,fruits:0,total:0},
   {dietTime: 'lunch',carbs: 0,proteins:0,dairy:0,fats:0,fruits:0,total:0},
   {dietTime: 'E Snacks',carbs: 0,proteins:0,dairy:0,fats:0,fruits:0,total:0},
-  {dietTime: 'Dinner', carbs: 0,proteins:0,dairy:0,fats:0,fruits:0,total:0}
+  {dietTime: 'Dinner', carbs: 0,proteins:0,dairy:0,fats:0,fruits:0,total:0},
+  {dietTime: 'Total', carbs: 0,proteins:0,dairy:0,fats:0,fruits:0,total:0}
  
 ]
 
@@ -36,6 +37,7 @@ today = new Date().getDate()
     this.getLunch(this.today);
     this.getESnacks(this.today);
     this.getDinner(this.today);
+    // this.setTotal()
    }
 
 getBreakFast(today){
@@ -48,9 +50,10 @@ getBreakFast(today){
       REPORT_DATA[0].proteins = res.protein;
       REPORT_DATA[0].fats = res.fats;
       REPORT_DATA[0].fruits= res.fruit;
+      
       // Uniray Plust to make total because our data come in string.
       REPORT_DATA[0].total =  + REPORT_DATA[0].carbs + +REPORT_DATA[0].dairy + +REPORT_DATA[0].proteins + +REPORT_DATA[0].fats +  +REPORT_DATA[0].fruits
-      
+      this.setTotal()
     }
     else{
       console.log('No data for today', this.today)
@@ -160,6 +163,17 @@ getDinner(today){
   })
 }
 
+
+ setTotal(){
+   for(let i = 0;i<5; i++){
+    REPORT_DATA[5].carbs = REPORT_DATA[5].carbs+ +REPORT_DATA[i].carbs;
+    REPORT_DATA[5].dairy = REPORT_DATA[5].dairy+ +REPORT_DATA[i].dairy;
+    REPORT_DATA[5].fats = REPORT_DATA[5].fats+ +REPORT_DATA[i].fats;
+    REPORT_DATA[5].fruits = REPORT_DATA[5].fruits+ +REPORT_DATA[i].fruits;
+    REPORT_DATA[5].proteins = REPORT_DATA[5].proteins+ +REPORT_DATA[i].proteins;
+    REPORT_DATA[5].total =  REPORT_DATA[5].total+ +REPORT_DATA[i].total;
+   }
+ }
 // End Methods
 
 

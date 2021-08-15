@@ -12,3 +12,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border: 2px solid white;
     color: white;
 }
+.text-right{
+  float: right;
+  margin-top: -5px;
+  padding-bottom: 5px;
+  a{
+    text-decoration: none;
+    color: white;
+   }
+}

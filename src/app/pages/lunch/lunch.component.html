@@ -1,5 +1,9 @@
 <mat-card class="card-carbs">
-  <mat-card-title>Carbs</mat-card-title>
+  <mat-card-title>Carbs
+    <span class="text-right">
+      <button mat-raised-button color="accent"> <a routerLink="/report"> Today's Report</a> </button>
+    </span>
+  </mat-card-title>
     <table mat-table [dataSource]="dataSourceCarbs" class="mat-elevation-z8">
         <!-- Position Column -->
         <ng-container matColumnDef="carbs">
