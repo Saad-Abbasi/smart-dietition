@@ -8,11 +8,11 @@ export interface snacks {
   food:string;
 }
 const SNACKS_DATA: snacks[] = [
-  {diet: 'carbs', ratio: '1',food:'2 breads'},
-  {diet: 'protein', ratio: '0.5',food:'2 breads'},
-  {diet: 'fat', ratio: '1',food:'1 chocolates'},
-  {diet: 'dairy', ratio: '1',food:'200ml milk'},
-  {diet: 'fruit', ratio: '1',food:'79g mango'}
+  {diet: 'Carbs', ratio: '1',food:'2 Breads'},
+  {diet: 'Protein', ratio: '0.5',food:'2 Breads'},
+  {diet: 'Fat', ratio: '1',food:'1 Chocolates'},
+  {diet: 'Dairy', ratio: '1',food:'200ml Milk'},
+  {diet: 'Fruit', ratio: '1',food:'79g Mango'}
 ];
 @Component({
   selector: 'app-m-snacks',

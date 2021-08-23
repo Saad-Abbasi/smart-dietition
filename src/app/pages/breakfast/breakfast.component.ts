@@ -39,43 +39,44 @@ export interface snacks {
 }
 
 // DataSources
+// DataSources
 const CARBS_DATA: carbs[] = [
-  {carbs: '1', ratio: '80g boiled rice'},
-  {carbs: '2', ratio: '60g roti'},
-  {carbs: '2', ratio: 'Cd size maize roti'},
-  {carbs: '1', ratio: '1 slice bran bread'},
-  {carbs: '2', ratio: '2 bread size'}
+  {carbs: '1', ratio: '40g Pasta'},
+  {carbs: '1.5', ratio: '8 Spoon Boiled Rice'},
+  {carbs: '1.5', ratio: '40g Roti +4 tbs Rice'},
+  {carbs: '2', ratio: '12 ts Rice'},
+  {carbs: '2', ratio: '160g Boil Rice'}
 ];
 const PROTEIN_DATA: proteins[] = [
-  {protein: '1', ratio: '2 eggs'},
-  {protein: '1', ratio: '80g chicken '},
-  {protein: '1', ratio: '25g Basan'},
-  {protein: '1', ratio: '2 tbs basan'},
-  {protein: '2', ratio: '1 boiled egg'}
+  {protein: '1', ratio: '80g lamb keema'},
+  {protein: '1', ratio: '5 tbs Rajma '},
+  {protein: '2', ratio: '5 tbs Channa'},
+  {protein: '0.5', ratio: '45g Chicken'},
+  {protein: '1', ratio: '5 tbs Moong Daal'}
 ];
 
 const FATS_DATA: fats[] = [
-  {fat: '1', ratio: 'Omelet 1tbs oil'},
-  {fat: '1', ratio: '1tbs dasi ghee'},
-  {fat: '1', ratio: ' 2 tbl cream '},
-  {fat: '1.5', ratio: '1tbs olive oil'},
-  {fat: '0.5', ratio: '1tbs cheese'}
+  {fat: '1', ratio: '1 ts Cooking Oil'},
+  {fat: '1', ratio: '2 ts Coconut Flour'},
+  {fat: '1', ratio: '1 ts Fat Spread'},
+  {fat: '0.5', ratio: '1 tbs Cheese'},
+  {fat: '1', ratio: '1 tbs Desi Gee'}
 ];
 
 const DAIRY_DATA: dairy[] = [
-  {dairy: '1.5', ratio: '80g chees'},
-  {dairy: '1', ratio: '100ml Soya Milk'},
-  {dairy: '1', ratio: ' 200ml ml milk '},
-  {dairy: '1', ratio: '200 ml milk in tea'},
-  {dairy: '1', ratio: 'Half glass Almond milk'}
+  {dairy: '1', ratio: '3tbs Dahi'},
+  {dairy: '1', ratio: '1 Glass Lasi'},
+  {dairy: '1', ratio: '200ml Milk Shake'},
+  {dairy: '1', ratio: '200 Milk'},
+  {dairy: '1', ratio: '4 tbs Raita'}
 ];
 
 const FRUIT_DATA: fruit[] = [
-  {fruit: '1', ratio: '80g strawberry'},
-  {fruit: '1', ratio: '1 Palm size mango'},
-  {fruit: '1', ratio: '3 dates'},
-  {fruit: '1', ratio: '80g fig'},
-  {fruit: '1', ratio: '1 kiwi '}
+  {fruit: '1', ratio: '80g Cherries'},
+  {fruit: '1', ratio: '80g Mango'},
+  {fruit: '1', ratio: '2 Banana'},
+  {fruit: '2', ratio: '1 Apple'},
+  {fruit: '1', ratio: '80g Grapes'}
 ];
 
 const SNACKS_DATA: snacks[] = [
@@ -105,6 +106,21 @@ breakFastData ={
   fruit:'',
   frRatio:''
 }
+totalCarbs; // shortName for messages bC (breakfast carbs)
+totalProtein; //bP
+totalDairy;//bD
+totalFats;//bF
+totalFruit;//bFr
+// Copy from here 
+msgNot = 'Not Completed'
+msgYes = 'Completed'
+msgOver = 'Over';
+bC = this.msgNot;
+bP = this.msgNot;
+bD = this.msgNot;
+bF =this.msgNot;
+bFr = this.msgNot ;
+// to here 
 selectedIndex;
 selectedIndex2;
 selectedIndex3;
@@ -114,6 +130,7 @@ keyDate = new Date().getDate();
   constructor(private dbService:DbService) { }
 
   ngOnInit(): void {
+    this.syncData(this.keyDate)
   }
   displayedColumnsCarbs: string[] = ['carbs', 'ratio','select'];
   displayedColumnsProtein: string[] = ['protein', 'ratio','select'];
@@ -271,6 +288,17 @@ keyDate = new Date().getDate();
 
   carbsDiet(row,index){
     this.selectedIndex = index;
+  //  Copy from here 
+    if(+row.carbs < 2){
+      this.bC = this.msgNot;
+    }
+    else if(+row.carbs > 2){
+      this.bC = this.msgOver
+    }
+    else{
+      this.bC = this.msgYes
+    }
+// till here 
     this.syncData(this.keyDate)
     this.breakFastData.carbs = row.carbs;
     this.breakFastData.cRatio = row.ratio;
@@ -289,6 +317,17 @@ keyDate = new Date().getDate();
   }
   proteinDiet(row,index){
     this.selectedIndex2 = index;
+
+    if(+row.protein < 1){
+      this.bP = this.msgNot;
+    }
+    else if(+row.protein > 1){
+      this.bP = this.msgOver
+    }
+    else{
+      this.bP = this.msgYes;
+    }
+
     this.syncData(this.keyDate)
     this.breakFastData.protein = row.protein;
     this.breakFastData.pRatio = row.ratio;
@@ -300,6 +339,7 @@ keyDate = new Date().getDate();
       this.breakFastData.protein = row.protein;
       this.breakFastData.pRatio = row.ratio;
       this.dbService.updateBreakfast(this.keyDate,this.breakFastData);
+      
       // alert(' Already Exist!')
       // console.log('Error: ' + (e.stack || e));
     
@@ -309,6 +349,17 @@ keyDate = new Date().getDate();
   
   fatDiet(row,index){
     this.selectedIndex3 = index;
+
+    if(+row.fats < 1){
+      this.bF = this.msgNot
+    }
+    else if(+row.fats >1){
+      this.bF = this.msgOver
+    }
+    else{
+      this.bF = this.msgYes
+    }
+
     this.syncData(this.keyDate)
     this.breakFastData.fats = row.fat;
     this.breakFastData.fRatio = row.ratio;
@@ -328,6 +379,17 @@ keyDate = new Date().getDate();
   }
   async dairyDiet(row,index){
     this.selectedIndex4 = index;
+
+    if(+row.dairy < 1){
+      this.bD = this.msgNot
+    }
+    else if (+row.dairy > 1){
+      this.bD = this.msgOver;
+    }
+    else{
+      this.bD = this.msgYes
+    }
+
     await this.syncData(this.keyDate)
     this.breakFastData.dairy = row.dairy;
       this.breakFastData.dRatio = row.ratio
@@ -348,6 +410,16 @@ keyDate = new Date().getDate();
   }
   async fruitDiet(row,index){
     this.selectedIndex5 = index;
+    if(+row.fruit < 1){
+      this.bFr= this.msgNot
+    }
+    else if (+row.fruit > 1){
+      this.bFr = this.msgOver;
+    }
+    else {
+      this.bFr = this.msgYes
+    }
+
     await this.syncData(this.keyDate)
     this.breakFastData.fruit = row.fruit;
     this.breakFastData.frRatio = row.ratio;
@@ -368,6 +440,7 @@ keyDate = new Date().getDate();
   }
   
   syncData(keyDate){
+    
     this.dbService.getBreakFast(keyDate).then( async (res)=>{
       console.log("Data of BreakFast is ", res)
       this.breakFastData.carbs = res.carbs;
@@ -380,10 +453,47 @@ keyDate = new Date().getDate();
       this.breakFastData.dRatio = res.dRatio;
       this.breakFastData.fruit = res.fruit;
       this.breakFastData.frRatio = res.frRatio;
-    })
+      this.calculateBreakfast(res);
+    });
+    
   }
   
-  // snacksDiet(row){
-  //   console.log(row)
-  // }
+  // Breakfast Calculation
+  calculateBreakfast(res){
+    console.log(typeof(+res.carbs))
+    // if(+res.carbs < 2){
+    //   this.bC = 'Not Completed'
+    // }
+    // else{
+    //   this.bC = 'Completed'
+    // }
+    // if(+res.protein < 2){
+    //   this.bP = 'Not Completed'
+    // }
+    // else{
+    //   this.bP = 'Completed'
+    // }
+    // if(+res.fats < 2){
+    //   this.bF = 'Not Completed'
+    // }
+    // else{
+    //   this.bF = 'Completed'
+    // }
+
+    // if(+res.dairy < 2){
+    //   this.bD = 'Not Completed'
+    // }
+    // else{
+    //   this.bD = 'Completed'
+    // }
+    // if(+res.fruit < 2){
+    //   this.bFr= 'Not Completed'
+    // }
+    // else {
+    //   this.bFr = 'Completed'
+    // }
+  }
+  getbP(){
+    return this.bP;
+  }
 }

@@ -39,39 +39,40 @@ export interface snacks {
 }
 
 // DataSources
+//Dinner
 const CARBS_DATA: carbs[] = [
   {carbs: '1', ratio: '40g Pasta'},
-  {carbs: '1.5', ratio: '8 Spoon Boiled rice'},
-  {carbs: '1.5', ratio: '40g Roti +4 Tsb rice'},
-  {carbs: '2', ratio: '12 Tsp Rice'},
-  {carbs: '2', ratio: '160g boil rice'}
+  {carbs: '1.5', ratio: '8 Spoon Boiled Rice'},
+  {carbs: '1.5', ratio: '40g Roti +4 tbs Rice'},
+  {carbs: '2', ratio: '12 ts Rice'},
+  {carbs: '2', ratio: '160g Boil Rice'}
 ];
 const PROTEIN_DATA: proteins[] = [
   {protein: '1', ratio: '80g lamb keema'},
-  {protein: '1', ratio: '5 Tsb Rajma '},
-  {protein: '2', ratio: '5 tsb Channa'},
+  {protein: '1', ratio: '5 tbs Rajma '},
+  {protein: '2', ratio: '5 tbs Channa'},
   {protein: '0.5', ratio: '45g Chicken'},
-  {protein: '1', ratio: '5 Tsb Daal'}
+  {protein: '1', ratio: '5 tbs Moong Daal'}
 ];
 
 const FATS_DATA: fats[] = [
-  {fat: '1', ratio: '1 Tsb oil'},
-  {fat: '1', ratio: '2 Tsb coconut flour'},
-  {fat: '1.5', ratio: ' 1 Tsb '},
-  {fat: '0.5', ratio: '1 Tsb Chees'},
-  {fat: '1', ratio: '1 Tsb Desi gee'}
+  {fat: '1', ratio: '1 ts Cooking Oil'},
+  {fat: '1', ratio: '2 ts Coconut Flour'},
+  {fat: '1', ratio: '1 ts Fat Spread'},
+  {fat: '0.5', ratio: '1 tbs Cheese'},
+  {fat: '1', ratio: '1 tbs Desi Gee'}
 ];
 
 const DAIRY_DATA: dairy[] = [
-  {dairy: '1', ratio: '3tbs dahi'},
-  {dairy: '1', ratio: '1 glass lasi'},
-  {dairy: '1', ratio: ' 200ml milk shake'},
-  {dairy: '1', ratio: '200 milk'},
-  {dairy: '1', ratio: '4 tbs raita'}
+  {dairy: '1', ratio: '3tbs Dahi'},
+  {dairy: '1', ratio: '1 Glass Lasi'},
+  {dairy: '1', ratio: '200ml Milk Shake'},
+  {dairy: '1', ratio: '200 Milk'},
+  {dairy: '1', ratio: '4 tbs Raita'}
 ];
 
 const FRUIT_DATA: fruit[] = [
-  {fruit: '1', ratio: '80g cherries'},
+  {fruit: '1', ratio: '80g Cherries'},
   {fruit: '1', ratio: '80g Mango'},
   {fruit: '1', ratio: '2 Banana'},
   {fruit: '2', ratio: '1 Apple'},
@@ -82,8 +83,8 @@ const SNACKS_DATA: snacks[] = [
   {diet: 'carbs', ratio: '1',food:'100ml Milk'},
   {diet: 'protein', ratio: '1',food:'200ml Milk tea'},
   {diet: 'fat', ratio: '0.5',food:'10g Chocolate'},
-  {diet: 'dairy', ratio: '0.5',food:'1 one cup coffee'},
-  {diet: 'fruit', ratio: '1',food:'4 tsb raitah'}
+  {diet: 'dairy', ratio: '0.5',food:'1 one Cup Coffee'},
+  {diet: 'fruit', ratio: '1',food:'4 tbs Raitah'}
 ];
 
 

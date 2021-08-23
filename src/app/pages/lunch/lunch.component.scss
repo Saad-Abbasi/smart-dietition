@@ -1,3 +1,7 @@
+$accent_color:#ff4081;
+body{
+  height: 100%;
+}
 table {
     width: 100%;
   }
@@ -5,8 +9,6 @@ th{
     font-size: large;
     font-weight: bold;
 }
-
-// For table Title
 mat-card{
   mat-card-title{
     padding: 0px 0px 5px 5px;
@@ -15,4 +17,9 @@ mat-card{
 
 .btn-succes{
   background-color: #03a302;
+}
+
+
+.mat-card:not([class*=mat-elevation-z]){
+  box-shadow: none;
 }

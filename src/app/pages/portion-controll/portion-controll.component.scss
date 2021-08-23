@@ -5,7 +5,6 @@ $accent_color:#ff4081;
   table {
     width: 100%;
   }
-  
     .menu-card{
        margin-bottom: 20px ;
        a{
@@ -52,10 +51,9 @@ $accent_color:#ff4081;
       right: 0;
       margin-right: 20px;
     }
-.panel-title{
+.panel-title-small{
   cursor: pointer;
   margin: 0px 10px 0px 10px;
-  padding: 0px 20px;
   font-size: large;
   font-weight: bold;
   color: $accent_color;

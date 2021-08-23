@@ -4,18 +4,20 @@
     max-width: 100%;
     overflow: auto;
   }
-  
+  .mat-card{
+    padding: 0px !important;
+  }
   table {
-    width: 800px;
+    width: 100%;
   }
   
   td.mat-column-star {
-    width: 20px;
-    padding-right: 8px;
+    width: 8px;
+    padding-right: 5px;
   }
   
   th.mat-column-position, td.mat-column-position {
-    padding-left: 8px;
+    padding-left: 5px;
   }
   
   .mat-table-sticky-border-elem-right {
@@ -28,17 +30,18 @@
   
 
 th{
-    font-size: large;
+    font-size: small;
+    font-weight: bold;
 }
 th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
-  padding: 2px;
-  border-bottom-width: 5px;
+  // padding: 1px;
+  border-bottom-width: 2px;
   border-bottom-style: solid;
 }
 
 .error{
   background-color: red;
-    padding-left: 5px !important;
+    padding-left: 3px !important;
     border: 2px solid white;
     color: white;
 }

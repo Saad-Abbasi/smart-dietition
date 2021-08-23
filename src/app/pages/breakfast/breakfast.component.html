@@ -1,24 +1,34 @@
-<mat-card class="card-carbs">
-  
-  <mat-card-title>Carbs 
-    <span class="text-right">
-      <button mat-raised-button color="accent"> <a routerLink="/report"> Today's Report</a> </button>
-    </span>
-</mat-card-title>
-    <table mat-table [dataSource]="dataSourceCarbs" class="mat-elevation-z8">
-        <!-- Position Column -->
+<!-- <span class="text-right">
+  <button mat-raised-button color="accent"> <a routerLink="/report"> Today's Report</a> </button>
+</span> -->
+<div class="banner-top">
+ <h1>Breakfast Portion</h1>
+</div>
+<mat-card class="menu-title card-carbs">
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="panel-title">
+          Carbs 
+        </mat-panel-title>
+        <mat-panel-description>
+          <span>{{bC}}</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <table mat-table [dataSource]="dataSourceCarbs" class="mat-elevation-z8">
+         
         
         <ng-container matColumnDef="carbs">
           <th mat-header-cell *matHeaderCellDef> Carbs </th>
           <td mat-cell *matCellDef="let element"> {{element.carbs}}p </td>
         </ng-container>
       
-        <!-- Name Column -->
+        
         <ng-container matColumnDef="ratio">
           <th mat-header-cell *matHeaderCellDef> Ratio </th>
           <td mat-cell *matCellDef="let element"> {{element.ratio}} </td>
         </ng-container>
-       <!-- Checkbox Column -->
+       
        <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef>
           Status
@@ -33,32 +43,45 @@
             (click)="selectionCarbs.toggle(row)">
         </tr>
       </table>
+    </mat-expansion-panel>
+  </mat-accordion>
 </mat-card>
 
 <!-- Proteins -->
 
 
+
 <mat-card class="card-protein">
-  <mat-card-title>Proteins</mat-card-title>
-    <table mat-table [dataSource]="dataSourceProtein" class="mat-elevation-z8">
-        <!-- Position Column -->
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="panel-title">
+          Proteins
+        </mat-panel-title>
+        <mat-panel-description>
+          <span>{{bP}}</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <table mat-table [dataSource]="dataSourceProtein" class="mat-elevation-z8">
+           
         <ng-container matColumnDef="protein">
           <th mat-header-cell *matHeaderCellDef> Proteins </th>
           <td mat-cell *matCellDef="let element"> {{element.protein}}p </td>
         </ng-container>
       
-        <!-- Name Column -->
+        
         <ng-container matColumnDef="ratio">
           <th mat-header-cell *matHeaderCellDef> Ratio </th>
           <td mat-cell *matCellDef="let element"> {{element.ratio}} </td>
         </ng-container>
-       <!-- Checkbox Column -->
+       
        <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef>
           Status
         </th>
         <td mat-cell *matCellDef="let row;let i = index">
-          <button [class.btn-succes]='i == selectedIndex2'  mat-raised-button color="accent" (click)="proteinDiet(row,i)">Done</button>
+          <button [class.btn-succes]='i == selectedIndex2'  mat-raised-button color="accent" 
+          (click)="proteinDiet(row,i)">Done</button>
         </td>
       </ng-container>
         
@@ -67,26 +90,37 @@
             (click)="selectionProtein.toggle(row)">
         </tr>
       </table>
+    </mat-expansion-panel>
+  </mat-accordion>
 </mat-card>
 
 
 <!-- Fats -->
 
 <mat-card class="card-fats">
-  <mat-card-title>Fats</mat-card-title>
-    <table mat-table [dataSource]="dataSourceFat" class="mat-elevation-z8">
-        <!-- Position Column -->
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="panel-title">
+          Fats
+        </mat-panel-title>
+        <mat-panel-description>
+          <span>{{bF}}</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <table mat-table [dataSource]="dataSourceFat" class="mat-elevation-z8">
+           
         <ng-container matColumnDef="fat">
           <th mat-header-cell *matHeaderCellDef> Fat </th>
           <td mat-cell *matCellDef="let element"> {{element.fat}}p </td>
         </ng-container>
       
-        <!-- Name Column -->
+        
         <ng-container matColumnDef="ratio">
           <th mat-header-cell *matHeaderCellDef> Ratio </th>
           <td mat-cell *matCellDef="let element"> {{element.ratio}} </td>
         </ng-container>
-       <!-- Checkbox Column -->
+       
        <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef>
           Status
@@ -101,25 +135,38 @@
             (click)="selectionFat.toggle(row)">
         </tr>
       </table>
+    </mat-expansion-panel>
+  </mat-accordion>
 </mat-card>
   
 <!-- Dairy -->
 
+
+
 <mat-card class="card-dairy">
-  <mat-card-title>Dairy</mat-card-title>
-    <table mat-table [dataSource]="dataSourceDairy" class="mat-elevation-z8">
-        <!-- Position Column -->
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="panel-title">
+          Dairy
+        </mat-panel-title>
+        <mat-panel-description>
+          <span>{{bD}}</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <table mat-table [dataSource]="dataSourceDairy" class="mat-elevation-z8">
+           
         <ng-container matColumnDef="dairy">
           <th mat-header-cell *matHeaderCellDef> Dairy </th>
           <td mat-cell *matCellDef="let element"> {{element.dairy}}p </td>
         </ng-container>
       
-        <!-- Name Column -->
+        
         <ng-container matColumnDef="ratio">
           <th mat-header-cell *matHeaderCellDef> Ratio </th>
           <td mat-cell *matCellDef="let element"> {{element.ratio}} </td>
         </ng-container>
-       <!-- Checkbox Column -->
+       
        <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef>
           Status
@@ -134,26 +181,36 @@
             (click)="selectionDairy.toggle(row)">
         </tr>
       </table>
+    </mat-expansion-panel>
+  </mat-accordion>
 </mat-card>
 
 
 <!-- Fruit -->
-
 <mat-card class="card-fruit">
-  <mat-card-title>Fruit</mat-card-title>
-    <table mat-table [dataSource]="dataSourceFruit" class="mat-elevation-z8">
-        <!-- Position Column -->
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="panel-title">
+          Fruit
+        </mat-panel-title>
+        <mat-panel-description>
+          <span>{{bFr}}</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <table mat-table [dataSource]="dataSourceFruit" class="mat-elevation-z8">
+           
         <ng-container matColumnDef="fruit">
           <th mat-header-cell *matHeaderCellDef> Fruit </th>
           <td mat-cell *matCellDef="let element"> {{element.fruit}}p </td>
         </ng-container>
       
-        <!-- Name Column -->
+        
         <ng-container matColumnDef="ratio">
           <th mat-header-cell *matHeaderCellDef> Ratio </th>
           <td mat-cell *matCellDef="let element"> {{element.ratio}} </td>
         </ng-container>
-       <!-- Checkbox Column -->
+       
        <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef>
           Status
@@ -168,7 +225,11 @@
             (click)="selectionFruit.toggle(row)">
         </tr>
       </table>
+    </mat-expansion-panel>
+  </mat-accordion>
 </mat-card>
+
+
 
 <!-- Snacks -->
 

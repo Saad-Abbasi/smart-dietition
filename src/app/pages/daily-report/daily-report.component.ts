@@ -37,7 +37,9 @@ today = new Date().getDate()
     this.getLunch(this.today);
     this.getESnacks(this.today);
     this.getDinner(this.today);
-    // this.setTotal()
+    setTimeout(() => {
+      this.setTOtal()
+    }, 1000);
    }
 
 getBreakFast(today){
@@ -45,15 +47,27 @@ getBreakFast(today){
   .then(res=>{
     if(res){
       console.log('Breakfast data is ', res)
-      REPORT_DATA[0].carbs = res.carbs;
-      REPORT_DATA[0].dairy = res.dairy;
-      REPORT_DATA[0].proteins = res.protein;
-      REPORT_DATA[0].fats = res.fats;
-      REPORT_DATA[0].fruits= res.fruit;
+      if(+res.carbs > 0){
+        REPORT_DATA[0].carbs = res.carbs;
+      }
+      if(+res.dairy > 0){
+        REPORT_DATA[0].dairy = res.dairy;
+      }
+      if(+res.protein > 0){
+        REPORT_DATA[0].proteins = res.protein;
+      }
+      
+      if(+res.fats > 0){
+        REPORT_DATA[0].fats = res.fats;
+      }
+      if(+res.fruit > 0){
+        REPORT_DATA[0].fruits= res.fruit;
+      }
+      
       
       // Uniray Plust to make total because our data come in string.
       REPORT_DATA[0].total =  + REPORT_DATA[0].carbs + +REPORT_DATA[0].dairy + +REPORT_DATA[0].proteins + +REPORT_DATA[0].fats +  +REPORT_DATA[0].fruits
-      this.setTotal()
+      //this.setTOtal()
     }
     else{
       console.log('No data for today', this.today)
@@ -84,7 +98,7 @@ getMSnacks(today){
       
       // Uniray Plust to make total because our data come in string.
       REPORT_DATA[1].total =  + REPORT_DATA[1].carbs + +REPORT_DATA[1].dairy + +REPORT_DATA[1].proteins + +REPORT_DATA[1].fats +  +REPORT_DATA[1].fruits
-      
+      //this.setTOtal()
     }
     else{
       console.log('No data for today', this.today)
@@ -98,16 +112,17 @@ getLunch(today){
     if(res){
       console.log('Lunch data is ', res)
       REPORT_DATA[2].carbs = res.carbs;
+      
       REPORT_DATA[2].dairy = res.dairy;
       REPORT_DATA[2].proteins = res.protein;
       REPORT_DATA[2].fats = res.fats;
       REPORT_DATA[2].fruits= res.fruit;
       // Uniray Plust to make total because our data come in string.
       REPORT_DATA[2].total =  + REPORT_DATA[2].carbs + +REPORT_DATA[2].dairy + +REPORT_DATA[2].proteins + +REPORT_DATA[2].fats +  +REPORT_DATA[2].fruits
-      
+      //this.setTOtal()
     }
     else{
-      console.log('No data for today', this.today)
+      console.log('No lunch data for today', this.today)
     }
   })
 
@@ -137,6 +152,7 @@ getESnacks(today){
       
       // Uniray Plust to make total because our data come in string.
       REPORT_DATA[3].total =  + REPORT_DATA[3].carbs + +REPORT_DATA[3].dairy + +REPORT_DATA[3].proteins + +REPORT_DATA[3].fats +  +REPORT_DATA[3].fruits
+      //this.setTOtal()
     }
     else{
       console.log('No data for today', this.today)
@@ -155,7 +171,7 @@ getDinner(today){
       REPORT_DATA[4].fruits= res.fruit;
       // Uniray Plust to make total because our data come in string.
       REPORT_DATA[4].total =  + REPORT_DATA[4].carbs + +REPORT_DATA[4].dairy + +REPORT_DATA[4].proteins + +REPORT_DATA[4].fats +  +REPORT_DATA[4].fruits
-      
+      //this.setTOtal()
     }
     else{
       console.log('No data for today', this.today)
@@ -164,8 +180,9 @@ getDinner(today){
 }
 
 
- setTotal(){
+  setTOtal(){
    for(let i = 0;i<5; i++){
+    console.log(REPORT_DATA[i].fruits)
     REPORT_DATA[5].carbs = REPORT_DATA[5].carbs+ +REPORT_DATA[i].carbs;
     REPORT_DATA[5].dairy = REPORT_DATA[5].dairy+ +REPORT_DATA[i].dairy;
     REPORT_DATA[5].fats = REPORT_DATA[5].fats+ +REPORT_DATA[i].fats;
@@ -177,7 +194,7 @@ getDinner(today){
 // End Methods
 
 
-  displayedColumnsReport: string[] = ['dietTime','carbs', 'proteins','dairy','fats','fruits','total'];
+  displayedColumnsReport: string[] = ['dietTime','carbs', 'proteins','dairy','fats','fruits'];
   dataSourceReport = new MatTableDataSource<dailyReport>(REPORT_DATA);
 
 }
