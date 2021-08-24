@@ -4,8 +4,10 @@
   <img src="../../../assets/banners/report.jpg" alt="daily report">
 </div>
 <div class="example-container mat-elevation-z8">
- 
     <mat-card class="card-report">
+      <mat-card-header class="date">
+        {{completeDate |date}}
+      </mat-card-header>
         <table mat-table [dataSource]="dataSourceReport" class="mat-elevation-z8">
     
             <ng-container matColumnDef="dietTime" >

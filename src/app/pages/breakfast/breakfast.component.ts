@@ -113,7 +113,7 @@ totalFats;//bF
 totalFruit;//bFr
 // Copy from here 
 msgNot = 'Not Completed'
-msgYes = 'Completed'
+msgYes = 'Portion Completed'
 msgOver = 'Over';
 bC = this.msgNot;
 bP = this.msgNot;
@@ -288,9 +288,12 @@ keyDate = new Date().getDate();
 
   carbsDiet(row,index){
     this.selectedIndex = index;
-  //  Copy from here 
-    if(+row.carbs < 2){
-      this.bC = this.msgNot;
+    
+    if(+row.carbs < 2 && +row.carbs > 0 && +row.carbs != 1.5){
+      this.bC = 'Take one portion more in snacks';
+    }
+    else if(+row.carbs > 1 && +row.carbs<2){
+      this.bC = 'Take 0.5 portion more in snacks';
     }
     else if(+row.carbs > 2){
       this.bC = this.msgOver
@@ -318,11 +321,11 @@ keyDate = new Date().getDate();
   proteinDiet(row,index){
     this.selectedIndex2 = index;
 
-    if(+row.protein < 1){
-      this.bP = this.msgNot;
+    if(+row.protein > 1 ){
+      this.bP = this.msgOver;
     }
-    else if(+row.protein > 1){
-      this.bP = this.msgOver
+    else if(+row.protein < 1 ){
+      this.bP = 'Take 0.5 portion in snacks'
     }
     else{
       this.bP = this.msgYes;
@@ -349,11 +352,12 @@ keyDate = new Date().getDate();
   
   fatDiet(row,index){
     this.selectedIndex3 = index;
-
-    if(+row.fats < 1){
-      this.bF = this.msgNot
+   
+    if(+row.fat >0 && +row.fat < 1){
+      
+      this.bF = 'Take 0.5 Portion in snacks'
     }
-    else if(+row.fats >1){
+    else if(+row.fat > 1){
       this.bF = this.msgOver
     }
     else{
@@ -381,7 +385,7 @@ keyDate = new Date().getDate();
     this.selectedIndex4 = index;
 
     if(+row.dairy < 1){
-      this.bD = this.msgNot
+      this.bD = 'Take more portion'
     }
     else if (+row.dairy > 1){
       this.bD = this.msgOver;
@@ -411,7 +415,7 @@ keyDate = new Date().getDate();
   async fruitDiet(row,index){
     this.selectedIndex5 = index;
     if(+row.fruit < 1){
-      this.bFr= this.msgNot
+      this.bFr= 'Take more portion'
     }
     else if (+row.fruit > 1){
       this.bFr = this.msgOver;

@@ -12,7 +12,7 @@
            Carbs 
          </mat-panel-title>
          <mat-panel-description>
-           <span>Not Completed </span>
+           <span>{{DC}} </span>
          </mat-panel-description>
        </mat-expansion-panel-header>
        <table mat-table [dataSource]="dataSourceCarbs" class="mat-elevation-z8">
@@ -58,9 +58,10 @@
          <mat-panel-title class="panel-title">
            Proteins
          </mat-panel-title>
-         <!-- <mat-panel-description>
-           This is a summary of the content
-         </mat-panel-description> -->
+        <mat-panel-description>
+          <span>{{DP}} </span>
+        </mat-panel-description>
+        
        </mat-expansion-panel-header>
        <table mat-table [dataSource]="dataSourceProtein" class="mat-elevation-z8">
             
@@ -104,9 +105,10 @@
          <mat-panel-title class="panel-title">
            Fats
          </mat-panel-title>
-         <!-- <mat-panel-description>
-           This is a summary of the content
-         </mat-panel-description> -->
+        <mat-panel-description>
+          <span>{{DF}} </span>
+        </mat-panel-description>
+        
        </mat-expansion-panel-header>
        <table mat-table [dataSource]="dataSourceFat" class="mat-elevation-z8">
             
@@ -150,9 +152,9 @@
          <mat-panel-title class="panel-title">
            Dairy
          </mat-panel-title>
-         <!-- <mat-panel-description>
-           This is a summary of the content
-         </mat-panel-description> -->
+        <mat-panel-description>
+          <span>{{DC}} </span>
+        </mat-panel-description>
        </mat-expansion-panel-header>
        <table mat-table [dataSource]="dataSourceDairy" class="mat-elevation-z8">
             
@@ -194,9 +196,10 @@
          <mat-panel-title class="panel-title">
            Fruit
          </mat-panel-title>
-         <!-- <mat-panel-description>
-           This is a summary of the content
-         </mat-panel-description> -->
+        <mat-panel-description>
+          <span>{{DFr}} </span>
+        </mat-panel-description>
+        
        </mat-expansion-panel-header>
        <table mat-table [dataSource]="dataSourceFruit" class="mat-elevation-z8">
             

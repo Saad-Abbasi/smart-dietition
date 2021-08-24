@@ -28,7 +28,8 @@ const REPORT_DATA: dailyReport[] = [
   styleUrls: ['./daily-report.component.scss']
 })
 export class DailyReportComponent implements OnInit {
-today = new Date().getDate()
+today = new Date().getDate();
+completeDate = new Date();
   constructor(private dbService:DbService) { }
 
   ngOnInit(): void {

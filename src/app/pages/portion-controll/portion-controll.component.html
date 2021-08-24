@@ -41,7 +41,7 @@
       </mat-card-header>
     </mat-card>
 
-    <!-- Expension panel -->
+    
     <mat-accordion>
       <mat-expansion-panel hideToggle>
         <mat-expansion-panel-header>
@@ -57,27 +57,71 @@
           <!--- Note that these columns can be defined in any order.
                 The actual rendered columns are set as a property on the row definition" -->
         
-          <!-- Position Column -->
+         
           <ng-container matColumnDef="diet">
             <th mat-header-cell *matHeaderCellDef> Diet </th>
             <td mat-cell *matCellDef="let element"> {{element.diet}} </td>
           </ng-container>
         
-          <!-- Name Column -->
-          <ng-container matColumnDef="female">
-            <th mat-header-cell *matHeaderCellDef> Female </th>
-            <td mat-cell *matCellDef="let element"> {{element.female}} </td>
-          </ng-container>
-        
-          <!-- Weight Column -->
           <ng-container matColumnDef="male">
-            <th mat-header-cell *matHeaderCellDef> Male </th>
+            <th mat-header-cell *matHeaderCellDef> Diet portions </th>
             <td mat-cell *matCellDef="let element"> {{element.male}} </td>
           </ng-container>
         
-          <!-- Symbol Column -->
+        
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </mat-expansion-panel>
+    </mat-accordion>
+  
+    <div class="spacer">
+
+    </div>
+
+   <!-- It's for 2nd diet -->
+  
+    <mat-accordion>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title class="panel-title-small"> 
+            Fix Diet For Healthy Body
+          </mat-panel-title>
+          <!-- <mat-panel-description>
+            This is a summary of the content
+          </mat-panel-description> -->
+        </mat-expansion-panel-header>
+        <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
+    
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+         
+          <ng-container matColumnDef="diet">
+            <th mat-header-cell *matHeaderCellDef> Diet </th>
+            <td mat-cell *matCellDef="let element"> {{element.diet}} </td>
+          </ng-container>
+        
+         
+          <ng-container matColumnDef="bF">
+            <th mat-header-cell *matHeaderCellDef> Breakfast </th>
+            <td mat-cell *matCellDef="let element"> {{element.bF}} </td>
+          </ng-container>
+        
+         
+          <ng-container matColumnDef="lunch">
+            <th mat-header-cell *matHeaderCellDef> Lunch </th>
+            <td mat-cell *matCellDef="let element"> {{element.lunch}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="dinner">
+            <th mat-header-cell *matHeaderCellDef> Dinner </th>
+            <td mat-cell *matCellDef="let element"> {{element.dinner}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <tr mat-header-row *matHeaderRowDef="displayedDiet2"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedDiet2;"></tr>
         </table>
       </mat-expansion-panel>
     </mat-accordion>

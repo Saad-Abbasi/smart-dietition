@@ -39,7 +39,6 @@ export interface snacks {
 }
 
 // DataSources
-//Dinner
 const CARBS_DATA: carbs[] = [
   {carbs: '1', ratio: '40g Pasta'},
   {carbs: '1.5', ratio: '8 Spoon Boiled Rice'},
@@ -107,6 +106,20 @@ export class DinnerComponent implements OnInit {
     fruit:'',
     frRatio:''
   }
+   totalCarbs; // shortName for messages bC (breakfast carbs)
+  totalProtein; //DP
+  totalDairy;//DD
+  totalFats;//DF
+  totalFruit;//DFr
+  // Copy from here 
+  msgNot = 'Not Completed'
+  msgYes = 'Portion Completed'
+  msgOver = 'Over';
+  DC = this.msgNot;
+  DP = this.msgNot;
+  DD = this.msgNot;
+  DF =this.msgNot;
+  DFr = this.msgNot ;
   selectedIndex;
   selectedIndex2;
   selectedIndex3;
@@ -274,9 +287,20 @@ export class DinnerComponent implements OnInit {
 
 carbsDiet(row,index){
   this.selectedIndex = index;
+   if(+row.carbs < 2 && +row.carbs > 0 && +row.carbs != 1.5){
+    this.DC = 'Take one portion more in snacks';
+  }
+  else if(+row.carbs > 1 && +row.carbs<2){
+    this.DC = 'Take 0.5 portion more in snacks';
+  }
+  else if(+row.carbs > 2){
+    this.DC = this.msgOver
+  }
+  else{
+    this.DC = this.msgYes
+  }
   this.syncData(this.keyDate)
   this.dinnerData.carbs = row.carbs;
-  this.dinnerData.cRatio = row.ratio;
   this.dbService.addDinner(this.dinnerData)
   .then(async (res) => {
     console.log('Saved in DB, DB is now', res);
@@ -292,6 +316,15 @@ carbsDiet(row,index){
 }
 proteinDiet(row,index){
   this.selectedIndex2 = index;
+  if(+row.protein > 1 ){
+    this.DP = this.msgOver;
+  }
+  else if(+row.protein < 1 ){
+    this.DP = 'Take 0.5 portion in snacks'
+  }
+  else{
+    this.DP = this.msgYes;
+  }
   this.syncData(this.keyDate)
   this.dinnerData.protein = row.protein;
   this.dinnerData.pRatio = row.ratio;
@@ -312,6 +345,16 @@ proteinDiet(row,index){
 
 fatDiet(row,index){
   this.selectedIndex3 = index;
+  if(+row.fat >0 && +row.fat < 1){
+      
+    this.DF = 'Take 0.5 Portion in snacks'
+  }
+  else if(+row.fat >1){
+    this.DF = this.msgOver
+  }
+  else{
+    this.DF = this.msgYes
+  }
   this.syncData(this.keyDate)
   this.dinnerData.fats = row.fat;
   this.dinnerData.fRatio = row.ratio;
@@ -331,6 +374,15 @@ fatDiet(row,index){
 }
 async dairyDiet(row,index){
   this.selectedIndex4 = index;
+  if(+row.dairy < 1){
+    this.DD = 'Take more portion'
+  }
+  else if (+row.dairy > 1){
+    this.DD = this.msgOver;
+  }
+  else{
+    this.DD = this.msgYes
+  }
   await this.syncData(this.keyDate)
   this.dinnerData.dairy = row.dairy;
     this.dinnerData.dRatio = row.ratio
@@ -351,6 +403,15 @@ async dairyDiet(row,index){
 }
 async fruitDiet(row,index){
   this.selectedIndex5 = index;
+  if(+row.fruit < 1){
+    this.DFr= 'Take more portion'
+  }
+  else if (+row.fruit > 1){
+    this.DFr = this.msgOver;
+  }
+  else {
+    this.DFr = this.msgYes
+  }
   await this.syncData(this.keyDate)
   this.dinnerData.fruit = row.fruit;
   this.dinnerData.frRatio = row.ratio;

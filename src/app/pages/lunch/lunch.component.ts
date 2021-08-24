@@ -39,7 +39,6 @@ export interface snacks {
 }
 
 // DataSources
-//Lunch
 const CARBS_DATA: carbs[] = [
   {carbs: '2', ratio: '1 Cd Size Roti'},
   {carbs: '2', ratio: '12 tbs Palau'},
@@ -49,7 +48,7 @@ const CARBS_DATA: carbs[] = [
 ];
 const PROTEIN_DATA: proteins[] = [
   {protein: '2', ratio: '160 Bbq'},
-  {protein: '1', ratio: '5 tbs Mix Dall'},
+  {protein: '1', ratio: '5 tbs MIx Dall'},
   {protein: '1', ratio: 'Palm Size chicken Tikkah'},
   {protein: '1', ratio: '140g Channa'},
   {protein: '1', ratio: '70g Boiled Dall'}
@@ -78,6 +77,7 @@ const FRUIT_DATA: fruit[] = [
   {fruit: '1', ratio: '80g Gava'},
   {fruit: '1', ratio: '80g Mango'}
 ];
+
 const SNACKS_DATA: snacks[] = [
   {diet: 'carbs', ratio: '1',food:'2 breads'},
   {diet: 'protein', ratio: '0.5',food:'8g chicken'},
@@ -85,9 +85,6 @@ const SNACKS_DATA: snacks[] = [
   {diet: 'dairy', ratio: '1',food:'200ml milk'},
   {diet: 'fruit', ratio: '1',food:'79g mango'}
 ];
-
-
-
 
 
 
@@ -109,6 +106,20 @@ export class LunchComponent implements OnInit {
     fruit:'',
     frRatio:''
   }
+  totalCarbs; // shortName for messages bC (breakfast carbs)
+totalProtein; //LP
+totalDairy;//LD
+totalFats;//LF
+totalFruit;//LFr
+// Copy from here 
+msgNot = 'Not Completed'
+msgYes = 'Portion Completed'
+msgOver = 'Over';
+LC = this.msgNot;
+LP = this.msgNot;
+LD = this.msgNot;
+LF =this.msgNot;
+LFr = this.msgNot ;
   selectedIndex;
   selectedIndex2;
   selectedIndex3;
@@ -273,7 +284,22 @@ export class LunchComponent implements OnInit {
     }
     return `${this.selectionSnacks.isSelected(row) ? 'deselect' : 'select'} row ${row.diet + 1}`;
 }
+
 carbsDiet(row,index){
+  this.selectedIndex = index;
+  
+  if(+row.carbs < 2 && +row.carbs > 0 && +row.carbs != 1.5){
+    this.LC = 'Take one portion more in snacks';
+  }
+  else if(+row.carbs > 1 && +row.carbs<2){
+    this.LC = 'Take 0.5 portion more in snacks';
+  }
+  else if(+row.carbs > 2){
+    this.LC = this.msgOver
+  }
+  else{
+    this.LC = this.msgYes
+  }
   this.selectedIndex = index;
   this.syncData(this.keyDate)
   this.lunchData.carbs = row.carbs;
@@ -291,8 +317,18 @@ carbsDiet(row,index){
   
   });
 }
-proteinDiet(row,index){
-  this.selectedIndex2 = index;
+
+  proteinDiet(row,index){
+    this.selectedIndex2 = index;
+
+    if(+row.protein > 1 ){
+      this.LP = this.msgOver;
+    }
+    else if(+row.protein < 1 ){
+      this.LP = 'Take 0.5 portion in snacks'
+    }
+    else{
+      this.LP = this.msgYes;}
   this.syncData(this.keyDate)
   this.lunchData.protein = row.protein;
   this.lunchData.pRatio = row.ratio;
@@ -314,6 +350,16 @@ proteinDiet(row,index){
 fatDiet(row,index){
   this.selectedIndex3 = index;
   this.syncData(this.keyDate)
+  if(+row.fat >0 && +row.fat < 1){
+     this.LF ='Take 0.5 Portion in snacks'
+  }
+  else if(+row.fat >1){
+    this.LF = this.msgOver
+  }
+  else{
+    this.LF = this.msgYes
+  }
+
   this.lunchData.fats = row.fat;
   this.lunchData.fRatio = row.ratio;
   this.dbService.addlunch(this.lunchData)
@@ -332,6 +378,15 @@ fatDiet(row,index){
 }
 async dairyDiet(row,index){
   this.selectedIndex4 = index;
+  if(+row.dairy < 1){
+    this.LD = 'Take more portion'
+  }
+  else if (+row.dairy > 1){
+    this.LD = this.msgOver;
+  }
+  else{
+    this.LD = this.msgYes
+  }
   await this.syncData(this.keyDate)
   this.lunchData.dairy = row.dairy;
     this.lunchData.dRatio = row.ratio
@@ -352,6 +407,16 @@ async dairyDiet(row,index){
 }
 async fruitDiet(row,index){
   this.selectedIndex5 = index;
+   if(+row.fruit < 1){
+    this.LFr= 'Take more portion'
+  }
+  else if (+row.fruit > 1){
+    this.LFr = this.msgOver;
+  }
+  else {
+    this.LFr = this.msgYes
+  }
+
   await this.syncData(this.keyDate)
   this.lunchData.fruit = row.fruit;
   this.lunchData.frRatio = row.ratio;
