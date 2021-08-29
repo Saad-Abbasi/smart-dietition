@@ -18,6 +18,9 @@ export class HomeComponent implements OnInit {
   BMI(){
     this.router.navigate(['bmi'])
   }
+  BMR(){
+    this.router.navigate(['bmr'])
+  }
   showGuidlines(){
     this.router.navigate(['guide'])
   }

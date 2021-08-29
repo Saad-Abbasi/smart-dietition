@@ -1,0 +1,72 @@
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+  .container-fluid{
+    background-color: #028ea7;
+    height: 100%;
+    .container{
+        margin-left: 15px;
+        margin-right: 15px;
+        
+        
+        h1{
+            text-align: center;
+        }
+        h4{
+            @extend h1
+        }
+        .login-card{
+            padding-top: 30px ;
+            padding-bottom: 30px;
+        }
+        .banner{
+            height: 240px;
+            max-height: 300px;
+            width: 100%;
+            background-size: cover;
+            img{
+                width: 100%;
+                
+            }
+        }
+        mat-form-field{
+            width: 99%;
+        }
+       .register{
+           button{
+               margin-top: 5px;
+           }
+           span{
+               margin-left: 20px;
+               font-size: large;
+           }
+           .bmi_card{
+               font-family: cursive;
+               
+           }
+
+       }
+    }
+}
+
+table {
+    width: 100%;
+  }
+th{
+    font-size: large;
+    font-weight: bold;
+}
+form{
+    margin-bottom: 10px;
+}
+.mat-form-field {
+    
+    width: 100%;
+}
+.gender{
+    text-align: center;
+    padding: 12px;
+    background-color: whitesmoke;
+}
+

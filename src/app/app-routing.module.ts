@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BMIComponent } from './pages/bmi/bmi.component';
+import { BmrComponent } from './pages/bmr/bmr.component';
 import { BreakfastComponent } from './pages/breakfast/breakfast.component';
 import { DailyReportComponent } from './pages/daily-report/daily-report.component';
 import { DinnerComponent } from './pages/dinner/dinner.component';
@@ -12,6 +13,7 @@ import { LunchComponent } from './pages/lunch/lunch.component';
 import { MSnacksComponent } from './pages/m-snacks/m-snacks.component';
 import { PortionControllComponent } from './pages/portion-controll/portion-controll.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { TimerComponentComponent } from './pages/timer-component/timer-component.component';
 
 
 const routes: Routes = [
@@ -27,7 +29,9 @@ const routes: Routes = [
   {path : 'lunch', component: LunchComponent},
   {path : 'e-snacks', component: ESnacksComponent},
   {path : 'dinner', component: DinnerComponent},
-  {path : 'report', component: DailyReportComponent}
+  {path : 'report', component: DailyReportComponent},
+  {path : 'timer', component: TimerComponentComponent},
+  {path : 'bmr', component: BmrComponent}
 ];
 
 @NgModule({

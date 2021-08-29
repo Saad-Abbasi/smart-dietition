@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +23,8 @@ import { DinnerComponent } from './pages/dinner/dinner.component';
 import { DailyReportComponent } from './pages/daily-report/daily-report.component';
 import { MSnacksComponent } from './pages/m-snacks/m-snacks.component';
 import { ESnacksComponent } from './pages/e-snacks/e-snacks.component';
+import { TimerComponentComponent } from './pages/timer-component/timer-component.component';
+import { BmrComponent } from './pages/bmr/bmr.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,9 @@ import { ESnacksComponent } from './pages/e-snacks/e-snacks.component';
     DinnerComponent,
     DailyReportComponent,
     MSnacksComponent,
-    ESnacksComponent
+    ESnacksComponent,
+    TimerComponentComponent,
+    BmrComponent
   ],
   imports: [
     BrowserModule,
@@ -45,12 +50,16 @@ import { ESnacksComponent } from './pages/e-snacks/e-snacks.component';
     AppRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
+    FormsModule,
     FlexModule ,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerImmediately' }),
 
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    
+  ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
