@@ -302,6 +302,7 @@ keyDate = new Date().getDate();
       this.bC = this.msgYes
     }
 // till here 
+
     this.syncData(this.keyDate)
     this.breakFastData.carbs = row.carbs;
     this.breakFastData.cRatio = row.ratio;

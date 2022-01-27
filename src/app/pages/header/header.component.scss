@@ -16,16 +16,15 @@ $primaryColor: rgb(2 174 238);
     padding: 20px;
   }
   .menu-card{
-      background-color:$primaryColor;
+      // background-color:$primaryColor;
       border-radius: 0px ;
   }
   mat-card-title{
       padding-top: 10px;
   }
   .logo {
-    background-image: url('../../../assets/icons/icon-128x128.png');
-    background-size: cover;
-    background-color: white;
+    max-height: 30px;
+    margin-left: 20%;
   }
   .menu-button{
     position: absolute;
@@ -37,4 +36,10 @@ $primaryColor: rgb(2 174 238);
   }
   .spacer{
     padding-left: 5px;
+  }
+  .button-menu{
+    margin-left: -35px;
+  }
+  .small-spacer{
+    margin-left: 5px;
   }

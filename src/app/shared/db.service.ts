@@ -9,10 +9,13 @@ import Dexie from 'dexie';
 export class DbService {
   // private db: IDBPDatabase<MyDB>;
   private db: any;
+ 
   constructor() {
     this.createDatabase()
     // this.connectToDb();
   }
+
+
 // Create database 
 private createDatabase() {
   this.db = new Dexie('dietDb');
@@ -38,6 +41,7 @@ private createDatabase() {
 async getUser(email:string){
   return this.db.user.get({email: email})
 }
+
 // Creating breakFast
 addBreakfast(breakFast){
   return this.db.breakFast.add({
@@ -58,12 +62,12 @@ addBreakfast(breakFast){
 updateBreakfast(key,breakFastData){
   this.db.breakFast.update(key, breakFastData).then(function (updated) {
     if (updated)
-      console.log ("Updated Record");
+      console.log ("BreakFast Record Updated");
     else
       console.log ("Nothing was updated ");
   });
 }
-// Get breakfast
+// Get breakfast From Db 
 async getBreakFast(date){
     return this.db.breakFast.get({date: date})
 }

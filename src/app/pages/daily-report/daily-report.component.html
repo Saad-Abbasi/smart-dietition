@@ -14,42 +14,39 @@
                 <th mat-header-cell *matHeaderCellDef> Diet </th>
                 <td  mat-cell *matCellDef="let element"> {{element.dietTime}} </td>
               </ng-container>
-            <!-- Position Column -->
+            <!-- Carbs Column -->
             <ng-container matColumnDef="carbs">
               <th mat-header-cell *matHeaderCellDef> Carbs </th>
               <td  [ngClass]="element.carbs < 0.5 ? 'error' : 'pCompleted'"  mat-cell *matCellDef="let element"> {{element.carbs}} p</td>
             </ng-container>
           
-            <!-- Name Column -->
+            <!-- Proteins Column -->
             <ng-container matColumnDef="proteins">
               <th mat-header-cell *matHeaderCellDef> Proteins </th>
               <td  [ngClass]="element.proteins < 0.5 ? 'error' : 'pCompleted'"  mat-cell *matCellDef="let element"> {{element.proteins}} p </td>
             </ng-container>
     
-            <!-- Dinner Columne -->
+            <!-- Dairy Columne -->
     
             <ng-container matColumnDef="dairy">
                 <th mat-header-cell *matHeaderCellDef>Dairy</th>
                 <td  [ngClass]="element.dairy < 0.5 ? 'error' : 'pCompleted'"  mat-cell *matCellDef="let element"> {{element.dairy}} p</td>
               </ng-container>
     
-               <!-- Morining Snacks Columne -->
+               <!-- Fats Columne -->
               <ng-container matColumnDef="fats">
                 <th mat-header-cell *matHeaderCellDef>Fats</th>
                 <td  [ngClass]="element.fats < 0.5 ? 'error' : 'pCompleted'"  mat-cell *matCellDef="let element"> {{element.fats}} p </td>
               </ng-container>
     
-              <!-- Evening Snacks -->
+              <!-- Fruits Snacks -->
     
               <ng-container matColumnDef="fruits">
                 <th mat-header-cell *matHeaderCellDef>Fruits</th>
                 <td [ngClass]="element.fruits < 0.5 ? 'error' : 'pCompleted'"  mat-cell *matCellDef="let element"> {{element.fruits}} p</td>
               </ng-container>
     
-              <!-- <ng-container matColumnDef="total">
-                <th mat-header-cell *matHeaderCellDef>Total Portion</th>
-                <td  [ngClass]="element.total < 0.5 ? 'error' : 'pCompleted'"  mat-cell *matCellDef="let element"> {{element.total}} p </td>
-              </ng-container> -->
+         
             <tr mat-header-row *matHeaderRowDef="displayedColumnsReport"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumnsReport;">
             </tr>

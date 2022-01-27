@@ -81,10 +81,10 @@ export class SignupComponent implements OnInit {
   //   );
   // }
 
-  backgroundSync() {
-    navigator.serviceWorker.ready
-      .then((swRegistration) => swRegistration.sync.register('post-data'))
-      .catch(console.log);
-  }
+  // backgroundSync() {
+  //   navigator.serviceWorker.ready
+  //     .then((swRegistration) => swRegistration.sync.register('post-data'))
+  //     .catch(console.log);
+  // }
 
 }

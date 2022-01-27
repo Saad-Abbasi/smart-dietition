@@ -45,7 +45,7 @@ export class BMIComponent implements OnInit {
     let height = this.bmiForm.get('height').value ;
     height /= 39.3700787;
     this.BMI = weight/Math.pow(height,2);
-    this.BMI = this.BMI.toFixed(2);
+    this.BMI = this.BMI.toFixed(2);//For two values after point
 
     if (this.BMI < 15) this.weightReport=  " very seriously Underweight";
     if (this.BMI ==15||16) this.weightReport=  " seriously Underweight";
@@ -56,7 +56,7 @@ export class BMIComponent implements OnInit {
     if (this.BMI == 30&&this.BMI<=35) this.weightReport=  "moderately obese";
     if (this.BMI == 35&&this.BMI<=40) this.weightReport=  "seriously obese";
     if (this.BMI < 40) this.weightReport=  " very seriously obese";
-     console.log('Your Bmi is',this.BMI , this.weightReport)
+    
 
     //  if (this.BMI < 18.5) this.weightReport=  "Underweight";
     //  if (this.BMI >= 18.5 && this.BMI <= 25) this.weightReport = "Normal";

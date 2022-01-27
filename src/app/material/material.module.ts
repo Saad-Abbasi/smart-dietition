@@ -14,6 +14,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatTabsModule} from '@angular/material/tabs';
 const materialComponents = [
   MatButtonModule,
   MatMenuModule,
@@ -29,7 +30,8 @@ const materialComponents = [
   MatSelectModule,
   MatCheckboxModule,
   MatBadgeModule,
-  MatRadioModule
+  MatRadioModule,
+  MatTabsModule
 ]
 
 

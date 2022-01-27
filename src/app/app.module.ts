@@ -25,6 +25,7 @@ import { MSnacksComponent } from './pages/m-snacks/m-snacks.component';
 import { ESnacksComponent } from './pages/e-snacks/e-snacks.component';
 import { TimerComponentComponent } from './pages/timer-component/timer-component.component';
 import { BmrComponent } from './pages/bmr/bmr.component';
+import { MobileNavComponent } from './pages/mobile-nav/mobile-nav.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { BmrComponent } from './pages/bmr/bmr.component';
     MSnacksComponent,
     ESnacksComponent,
     TimerComponentComponent,
-    BmrComponent
+    BmrComponent,
+    MobileNavComponent
   ],
   imports: [
     BrowserModule,
