@@ -11,31 +11,27 @@ import { HomeComponent } from './pages/home/home.component';
 import {LoginComponent} from './pages/login/login.component'
 import { LunchComponent } from './pages/lunch/lunch.component';
 import { MSnacksComponent } from './pages/m-snacks/m-snacks.component';
-import { MobileNavComponent } from './pages/mobile-nav/mobile-nav.component';
 import { PortionControllComponent } from './pages/portion-controll/portion-controll.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { TimerComponentComponent } from './pages/timer-component/timer-component.component';
 
 
 const routes: Routes = [
-  // {path : 'home', component :HomeComponent},
-  // // { path: '', component:  LoginComponent},
-
-  // {path : 'login', component: LoginComponent},
-  // {path : 'register', component: SignupComponent},
-  // {path : 'bmi', component: BMIComponent},
-  // {path : 'guide', component: GuidlinesComponent},
-  // {path : 'portion', component: PortionControllComponent},
-  // {path : 'break-fast', component: BreakfastComponent},
-  // {path : 'm-snacks', component: MSnacksComponent},
-  // {path : 'lunch', component: LunchComponent},
-  // {path : 'e-snacks', component: ESnacksComponent},
-  // {path : 'dinner', component: DinnerComponent},
-  // {path : 'report', component: DailyReportComponent},
-  // {path : 'timer', component: TimerComponentComponent},
-  // {path : 'bmr', component: BmrComponent},
-  {path : 'tab', component: MobileNavComponent},
-  {path : '', component: MobileNavComponent}
+  {path : 'home', component :HomeComponent},
+  { path: '', component:  LoginComponent},
+  {path : 'login', component: LoginComponent},
+  {path : 'register', component: SignupComponent},
+  {path : 'bmi', component: BMIComponent},
+  {path : 'guide', component: GuidlinesComponent},
+  {path : 'portion', component: PortionControllComponent},
+  {path : 'break-fast', component: BreakfastComponent},
+  {path : 'm-snacks', component: MSnacksComponent},
+  {path : 'lunch', component: LunchComponent},
+  {path : 'e-snacks', component: ESnacksComponent},
+  {path : 'dinner', component: DinnerComponent},
+  {path : 'report', component: DailyReportComponent},
+  {path : 'timer', component: TimerComponentComponent},
+  {path : 'bmr', component: BmrComponent}
 ];
 
 @NgModule({
